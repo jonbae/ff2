@@ -14,6 +14,7 @@ import LogInFormContainer from './session_form/login_form_container';
 import SearchContainer from './search/search_container';
 import BenchShowContainer from './bench_show/bench_show_container';
 import BenchFormContainer from './bench_form/bench_form_container';
+import ExerciseIndexContainer from './exercise/exercise_index_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -25,6 +26,10 @@ const App = () => (
       <GreetingContainer />
     </header>
     <Switch>
+      <ProtectedRoute exact path="/exercises" component={ExerciseIndexContainer} />
+
+
+
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />

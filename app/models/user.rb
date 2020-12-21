@@ -16,6 +16,9 @@ class User < ApplicationRecord
     through: :favorites,
     source: :bench
 
+  has_many :exercises,
+    foreign_key: :user_id
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     return nil unless user

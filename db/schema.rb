@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_01_184040) do
+ActiveRecord::Schema.define(version: 2020_12_21_033618) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,18 @@ ActiveRecord::Schema.define(version: 2018_10_01_184040) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "exercises", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "description"
+    t.integer "rest_time"
+    t.integer "repititions"
+    t.integer "sets"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_exercises_on_user_id"
+  end
+
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "bench_id", null: false
@@ -54,6 +66,17 @@ ActiveRecord::Schema.define(version: 2018_10_01_184040) do
     t.index ["bench_id", "user_id"], name: "index_favorites_on_bench_id_and_user_id", unique: true
     t.index ["bench_id"], name: "index_favorites_on_bench_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "performances", force: :cascade do |t|
+    t.integer "duration"
+    t.integer "weight"
+    t.integer "user_id", null: false
+    t.integer "exercise_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_performances_on_exercise_id"
+    t.index ["user_id"], name: "index_performances_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|

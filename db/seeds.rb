@@ -44,3 +44,8 @@ Favorite.create(user_id: u2.id, bench_id:  b2.id)
 
 Review.create(author_id: u1.id, bench_id:  b1.id, body: "very good sits", rating: 5)
 Review.create(author_id: u2.id, bench_id:  b2.id, body: "its okay sit", rating: 3)
+
+
+squat = Exercise.create!( {name: 'squat', description: 'bend those legs', rest_time: 60, repititions: 10, sets: 3,user_id: u1.id, } )
+deadlift = Exercise.create!( {name: 'deadlift', description: 'lift the dead', rest_time: 60, repititions: 10, sets: 3,user_id: u1.id, } )
+bench_press = Exercise.create!( {name: 'bench_press', description: 'press the bench', rest_time: 60, repititions: 10, sets: 3,user_id: u1.id, } )
