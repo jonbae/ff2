@@ -1,0 +1,10 @@
+# We want to generate our own bundle not use any pre-existing bundles
+bundle.js
+bundle.js.map
+
+
+# Ignore master key for decrypting credentials and more.
+master.key
+
+public/assets/*
+node_modules
