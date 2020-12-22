@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_033618) do
     t.string "name", null: false
     t.text "description"
     t.integer "rest_time"
-    t.integer "repititions"
+    t.integer "repetitions"
     t.integer "sets"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false

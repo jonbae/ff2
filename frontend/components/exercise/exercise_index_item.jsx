@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { deleteExercise } from '../../util/exercise_api_util';
 
 class ExerciseIndexItem extends React.Component {
     constructor(props){
@@ -6,13 +7,6 @@ class ExerciseIndexItem extends React.Component {
         this.state = {}; 
         
     }
-
-
-
-
-
-
-
 
 
     render() {
@@ -28,10 +22,13 @@ class ExerciseIndexItem extends React.Component {
                     {this.props.exercise.sets}
                 </li>
                 <li>
-                    {this.props.exercise.repititions}
+                    {this.props.exercise.repetitions}
                 </li>
                 <li>
                     {this.props.exercise.rest_time}
+                </li>
+                <li>
+                    <button onClick={() => this.props.deleteExercise(this.props.exercise.id)}>Delete Exercise</button>
                 </li>
             </div>
         )

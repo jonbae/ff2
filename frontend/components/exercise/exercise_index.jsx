@@ -7,17 +7,33 @@ class ExerciseIndex extends React.Component {
         this.state = {
 
         }
+        this.createNewExercise = this.createNewExercise.bind(this)
     }
 
     componentDidMount() {
         this.props.requestExercises(); 
     }
 
+    createNewExercise(e) {
+         
+        const blankExercise = {
+            name: "testdummy",
+            description: "it's a test",
+            repetitions: 0, 
+            sets: 0, 
+            rest_time: 0,
+            user_id: this.props.currentUser.id
+        }
+
+        this.props.createExercise(blankExercise); 
+    }
+
     renderExercises(exercises) {
-        let exerciseItem = exercises.map (exercise => (
+        let exerciseItem = exercises.map(exercise => (
             <ExerciseIndexItem 
-                key={exercise.id}exerciseItem
-                exercise={exercise}    
+                key={exercise.id} 
+                exercise={exercise}   
+                deleteExercise={this.props.deleteExercise} 
             />
         ))
         return (
@@ -35,6 +51,11 @@ class ExerciseIndex extends React.Component {
                 <header>
                     this is the exercise index page
                 </header>
+                <div>
+                    <button onClick={this.createNewExercise}>
+                        create exercise
+                    </button>
+                </div>
                 {this.renderExercises(this.props.exercises)}
             </div>
         )

@@ -13,25 +13,27 @@ export const fetchExercise = id => (
     })
 )
 
-export const createExercise = payload => (
-    $.ajax({
+export const createExercise = exercise => {
+     
+    return $.ajax({
         method: 'post',
         url: 'api/exercises',
-        data: { payload }
+        data:  { exercise }  
     })
-)
+}
 
-export const updateExercise = payload => (
+export const updateExercise = exercise => (
     $.ajax({
         method: 'patch',
-        url: `api/exercises/${payload.id}`,
-        data: { payload }
+        url: `api/exercises/${exercise.id}`,
+        data: { exercise }
     })
 )
 
-export const deleteExercise = id => (
-    $.ajax({
+export const deleteExercise = id => {
+    debugger
+    return $.ajax({
         method: 'delete', 
         url: `api/exercises/${id}`
     })
-)
+}

@@ -6,8 +6,9 @@ import ExerciseIndex from './exercise_index'
 
 const msp = (state) => {
     const exercises = selectExercises(state);
-    
-    return {      
+     
+    return {    
+        currentUser:  state.entities.users[state.session.id],
         exercises
     }
 

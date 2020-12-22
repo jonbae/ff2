@@ -12,6 +12,7 @@ const exercisesReducer = (state={}, action) => {
             newState = { [action.exercise.id]: action.exercise }
             return Object.assign({}, state, newState)
         case REMOVE_EXERCISE: 
+            debugger
             newState = Object.assign({}, state); 
             delete newState[action.exerciseId]; 
             return newState; 
