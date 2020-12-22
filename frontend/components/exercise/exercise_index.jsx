@@ -1,4 +1,5 @@
 import React from 'react'; 
+import { useHistory, Link, withRouter} from "react-router-dom";
 import ExerciseIndexItem from './exercise_index_item'
 
 class ExerciseIndex extends React.Component { 
@@ -28,6 +29,7 @@ class ExerciseIndex extends React.Component {
         this.props.createExercise(blankExercise); 
     }
 
+
     renderExercises(exercises) {
         let exerciseItem = exercises.map(exercise => (
             <ExerciseIndexItem 
@@ -53,8 +55,10 @@ class ExerciseIndex extends React.Component {
                 </header>
                 <div>
                     <button onClick={this.createNewExercise}>
-                        create exercise
+                        create dummy exercise
                     </button>
+
+                    <Link to="/exercises/new">create new exercise form</Link>
                 </div>
                 {this.renderExercises(this.props.exercises)}
             </div>
@@ -63,4 +67,4 @@ class ExerciseIndex extends React.Component {
 }
 
 
-export default ExerciseIndex; 
+export default withRouter(ExerciseIndex); 
