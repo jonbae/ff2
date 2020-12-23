@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :bigint           not null, primary key
+#  username        :string           not null
+#  password_digest :string           not null
+#  session_token   :string           not null
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
 class User < ApplicationRecord
 
   attr_reader :password
@@ -18,6 +29,9 @@ class User < ApplicationRecord
 
   has_many :exercises,
     foreign_key: :user_id
+
+  has_many :performances, 
+    through: :exercises
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
