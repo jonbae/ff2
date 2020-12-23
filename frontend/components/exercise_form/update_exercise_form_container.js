@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'; 
-import { createExercise, updateExercise } from '../../util/exercise_api_util';
+import { createExercise, updateExercise } from '../../actions/exercise_actions';
 
 import ExerciseForm from './exercise_form'; 
 

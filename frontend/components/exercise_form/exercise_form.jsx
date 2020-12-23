@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { useHistory, Link, withRouter} from "react-router-dom";
 
 class ExerciseForm extends React.Component {
     constructor(props) {
@@ -16,6 +16,10 @@ class ExerciseForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
+         
+        const exercise = Object.assign( {}, this.state); 
+        
+        this.props.processForm(exercise).then(this.props.history.push(`/exercises`))
     }
 
     update(field){
@@ -49,6 +53,7 @@ class ExerciseForm extends React.Component {
                             <label className="exercise-field">Rest time</label>
                             <input type="number" value={rest_time} onChange={this.update('rest_time')}/>
 
+                            <input type="submit" value="Create Exercise"/>
                         </form>
                     </div>
                 </div>

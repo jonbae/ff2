@@ -17,19 +17,22 @@
 // export default connect(msp,mdp)(ExerciseForm)
 
 import { connect } from "react-redux"
-import { createExercise } from "../../util/exercise_api_util"
+import { createExercise } from "../../actions/exercise_actions"
 
 import ExerciseForm from './exercise_form'
 
 const msp = state => {
+     
     return {
         formType: "create",
         title: "New exercise" 
     }
 }
 
-const mdp = dispatch => ({
-    processForm: exercise => dispatch(createExercise(exercise))
-})
-
+const mdp = dispatch => {
+     
+    return {
+        processForm: exercise => dispatch(createExercise(exercise))
+    } 
+}
 export default connect(msp, mdp)(ExerciseForm); 

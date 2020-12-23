@@ -5,16 +5,17 @@ import { RECEIVE_EXERCISE } from '../actions/exercise_actions';
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
+   
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
     case RECEIVE_REVIEW:
       return Object.assign({}, state, { [action.author.id]: action.author });
     case RECEIVE_BENCH:
-      debugger
+       
       return Object.assign({}, state, action.authors);
     case RECEIVE_EXERCISE: 
-      debugger
+       
       
       return Object.assign({}, state)
     default:

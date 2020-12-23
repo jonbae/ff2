@@ -6,19 +6,23 @@ export const RECEIVE_EXERCISE = 'RECEIVE_EXERCISE';
 export const REMOVE_EXERCISE = 'REMOVE_EXERCISE';
 
 
-export const receieveExercises = exercises => ({
+export const receieveExercises = exercises => {
+     
+    return {
     type: RECEIVE_EXERCISES, 
     exercises
-})
+}}
 
-
-export const receieveExercise = ( {exercise} ) => ({ // or payload
+ // or payload
+export const receieveExercise = ( {exercise} ) => {
+       
+    return {
     type: RECEIVE_EXERCISE, 
     exercise
-})
+}}
 
 export const removeExercise = exercise => {
-    debugger
+     
     return {
         type: REMOVE_EXERCISE, 
         exerciseId: exercise.id
@@ -36,7 +40,7 @@ export const requestExercise = id => dispatch => {
 }
 
 export const createExercise = exercise => dispatch => {
-     
+      
     return APIUtil.createExercise(exercise).then(exercise => dispatch(receieveExercise(exercise)))
 }
 
@@ -45,7 +49,7 @@ export const updateExercise = exercise => dispatch => {
 }
 
 export const deleteExercise = id => dispatch => {
-    debugger
+     
     return APIUtil.deleteExercise(id).then(id => dispatch(removeExercise(id)))
 }
 
