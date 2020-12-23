@@ -54,14 +54,14 @@ class ExerciseIndex extends React.Component {
         formData.append('id', this.state.id)
         formData.append('file', this.state.selectedFile)
         console.log(formData.getAll('id'));
-        
-        debugger
-        
+                
         // formData.append('number', 3)
         // console.log(formData.values())
         
         // let file = this.state.selectedFile
-        importSpreadsheet(formData); 
+        importSpreadsheet(formData).then(() => {
+            this.props.requestExercises()
+        }); 
     }
 
 
