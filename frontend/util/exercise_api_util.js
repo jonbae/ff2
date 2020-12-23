@@ -22,13 +22,14 @@ export const createExercise = exercise => {
     })
 }
 
-export const updateExercise = exercise => (
-    $.ajax({
+export const updateExercise = exercise => {
+    debugger
+    return $.ajax({
         method: 'patch',
         url: `api/exercises/${exercise.id}`,
         data: { exercise }
     })
-)
+}
 
 export const deleteExercise = id => {
      

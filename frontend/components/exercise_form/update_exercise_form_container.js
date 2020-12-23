@@ -4,8 +4,8 @@ import { createExercise, updateExercise } from '../../actions/exercise_actions';
 import ExerciseForm from './exercise_form'; 
 
 const msp = (state, ownProps) => {
-
-    const exercise = state.entities.exercises[ownProps.exerciseId]
+    debugger
+    const exercise = state.entities.exercises[ownProps.match.params.exerciseId]
     return {
         exercise, 
 

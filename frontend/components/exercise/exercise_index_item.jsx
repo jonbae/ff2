@@ -1,6 +1,6 @@
 import React from 'react'; 
 import { deleteExercise } from '../../util/exercise_api_util';
-
+import { Link } from "react-router-dom";
 class ExerciseIndexItem extends React.Component {
     constructor(props){
         super(props) 
@@ -26,6 +26,9 @@ class ExerciseIndexItem extends React.Component {
                 </li>
                 <li>
                     {this.props.exercise.rest_time}
+                </li>
+                <li>
+                    <Link to={`/exercises/${this.props.exercise.id}/update`}>Modify Exercise</Link>
                 </li>
                 <li>
                     <button onClick={() => this.props.deleteExercise(this.props.exercise.id)}>Delete Exercise</button>

@@ -23,9 +23,7 @@ import UpdateExerciseFormContainer from './exercise_form/update_exercise_form_co
 const App = () => (
   <div>
     <header>
-      <Link to="/" className="header-link">
-        <h1>Bench BnB</h1>
-      </Link>
+
       <GreetingContainer />
     </header>
     <Switch>
@@ -33,8 +31,8 @@ const App = () => (
       
       <ProtectedRoute exact path="/exercises/new" component={CreateExerciseFormContainer} />
       
-      <ProtectedRoute exact path="/exercises/update" component={UpdateExerciseFormContainer} />
-
+      <ProtectedRoute exact path="/exercises/:exerciseId/update" component={UpdateExerciseFormContainer} />
+      {/* <ProtectedRoute path = "/exercises/:exerciseId"  */}
 
 
       <AuthRoute exact path="/login" component={LogInFormContainer} />
