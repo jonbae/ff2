@@ -7837,3 +7837,321 @@ Completed 200 OK in 77ms (Views: 7.9ms | ActiveRecord: 19.1ms)
 Completed 200 OK in 29ms (Views: 17.8ms | ActiveRecord: 1.4ms)
 
 
+Started POST "/api/exercises" for ::1 at 2020-12-22 23:37:27 -0500
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.6ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 04:37:27.939983"], ["updated_at", "2020-12-23 04:37:27.939983"]]
+  [1m[35m (16.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.5ms)
+  Rendered api/exercises/show.json.jbuilder (2.0ms)
+Completed 200 OK in 30ms (Views: 4.5ms | ActiveRecord: 17.7ms)
+
+
+Started DELETE "/api/exercises/39" for ::1 at 2020-12-22 23:37:31 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"39"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.5ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 39], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.4ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 39]]
+  [1m[35m (24.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 35ms (Views: 1.1ms | ActiveRecord: 25.8ms)
+
+
+Started DELETE "/api/exercises/38" for ::1 at 2020-12-22 23:37:33 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"38"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 38], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.4ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 38]]
+  [1m[35m (13.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 21ms (Views: 0.9ms | ActiveRecord: 14.9ms)
+
+
+Started POST "/api/exercises" for ::1 at 2020-12-22 23:40:59 -0500
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (1.0ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 04:40:59.457808"], ["updated_at", "2020-12-23 04:40:59.457808"]]
+  [1m[35m (20.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/show.json.jbuilder (2.7ms)
+Completed 200 OK in 34ms (Views: 5.2ms | ActiveRecord: 22.2ms)
+
+
+Started POST "/api/exercises" for ::1 at 2020-12-22 23:41:00 -0500
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.5ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 04:41:00.140161"], ["updated_at", "2020-12-23 04:41:00.140161"]]
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.9ms)
+  Rendered api/exercises/show.json.jbuilder (3.1ms)
+Completed 200 OK in 40ms (Views: 7.2ms | ActiveRecord: 26.8ms)
+
+
+Started DELETE "/api/exercises/41" for ::1 at 2020-12-22 23:41:02 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"41"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 41], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.5ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 41]]
+  [1m[35m (25.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 34ms (Views: 1.1ms | ActiveRecord: 26.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 00:47:46 -0500
+
+PG::ConnectionBad - could not connect to server: No such file or directory
+	Is the server running locally and accepting
+	connections on Unix domain socket "/var/run/postgresql/.s.PGSQL.5432"?:
+
+Started POST "/__better_errors/2394236bf78d84d2/variables" for ::1 at 2020-12-23 00:47:46 -0500
+Started GET "/" for ::1 at 2020-12-23 00:48:38 -0500
+  [1m[35m (39.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (69.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (120.1ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (228.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (511.6ms)
+Started GET "/" for ::1 at 2020-12-23 00:48:43 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (16.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (25.0ms)
+Completed 200 OK in 6191ms (Views: 5886.8ms | ActiveRecord: 290.1ms)
+
+
+Completed 200 OK in 2177ms (Views: 2157.7ms | ActiveRecord: 17.5ms)
+
+
+Started GET "/api/benches?bounds%5BnorthEast%5D%5Blat%5D=37.80788593713507&bounds%5BnorthEast%5D%5Blng%5D=-122.38838165576172&bounds%5BsouthWest%5D%5Blat%5D=37.74004249934129&bounds%5BsouthWest%5D%5Blng%5D=-122.47421234423828&minSeating=1&maxSeating=10" for ::1 at 2020-12-23 00:48:46 -0500
+Processing by Api::BenchesController#index as JSON
+  Parameters: {"bounds"=>{"northEast"=>{"lat"=>"37.80788593713507", "lng"=>"-122.38838165576172"}, "southWest"=>{"lat"=>"37.74004249934129", "lng"=>"-122.47421234423828"}}, "minSeating"=>"1", "maxSeating"=>"10"}
+  Rendering api/benches/index.json.jbuilder
+  [1m[36mBench Load (0.6ms)[0m  [1m[34mSELECT "benches".* FROM "benches" WHERE (lat < '37.80788593713507') AND (lat > '37.74004249934129') AND (lng > '-122.47421234423828') AND (lng < '-122.38838165576172') AND "benches"."seating" BETWEEN $1 AND $2[0m  [["seating", 1], ["seating", 10]]
+  [1m[36mReview Load (45.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mFavorite Load (0.4ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 4]]
+  Rendered api/benches/_bench.json.jbuilder (43.4ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 5]]
+  Rendered api/benches/_bench.json.jbuilder (1.8ms)
+  Rendered api/benches/index.json.jbuilder (207.7ms)
+Completed 200 OK in 215ms (Views: 156.5ms | ActiveRecord: 57.5ms)
+
+
+Started GET "/api/users" for ::1 at 2020-12-23 00:48:56 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/users"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/users/3" for ::1 at 2020-12-23 00:49:00 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/users/3"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/users" for ::1 at 2020-12-23 00:49:21 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/users"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/exercises" for ::1 at 2020-12-23 00:49:34 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (122.3ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.9ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (224.2ms)
+Completed 200 OK in 287ms (Views: 102.0ms | ActiveRecord: 128.6ms)
+
+
+Started GET "/api/users/3" for ::1 at 2020-12-23 00:49:41 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/api/users/3"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/api/exercises" for ::1 at 2020-12-23 00:49:48 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.4ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (4.4ms)
+Completed 200 OK in 10ms (Views: 5.6ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mExercise Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "exercises" WHERE "exercises"."name" = $1 LIMIT $2[0m  [["name", "MUtLq"], ["LIMIT", 1]]
+  [1m[36mExercise Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "exercises" WHERE "exercises"."name" = $1 LIMIT $2[0m  [["name", "MUtLq"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (74.9ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "MUtLq"], ["description", "SiHIQGajxQP"], ["rest_time", 851], ["repetitions", 689], ["sets", 613], ["user_id", 3], ["created_at", "2020-12-23 05:58:53.394050"], ["updated_at", "2020-12-23 05:58:53.394050"]]
+  [1m[35m (27.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mExercise Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "exercises" WHERE "exercises"."name" = $1 LIMIT $2[0m  [["name", "TVu"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.9ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "TVu"], ["description", "jehXr"], ["rest_time", 186], ["repetitions", 411], ["sets", 176], ["user_id", 3], ["created_at", "2020-12-23 05:58:53.506822"], ["updated_at", "2020-12-23 05:58:53.506822"]]
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mExercise Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "exercises" WHERE "exercises"."name" = $1 LIMIT $2[0m  [["name", "cOO"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.4ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "cOO"], ["description", "dHbtWxTJnzZBxykWPrXR"], ["rest_time", 995], ["repetitions", 612], ["sets", 988], ["user_id", 3], ["created_at", "2020-12-23 05:58:53.524879"], ["updated_at", "2020-12-23 05:58:53.524879"]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mExercise Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "exercises" WHERE "exercises"."name" = $1 LIMIT $2[0m  [["name", "qSkdG"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.4ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "qSkdG"], ["description", "xUzV OYPDPUayKJfSTEC"], ["rest_time", 873], ["repetitions", 330], ["sets", 571], ["user_id", 3], ["created_at", "2020-12-23 05:58:53.535752"], ["updated_at", "2020-12-23 05:58:53.535752"]]
+  [1m[35m (5.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-12-23 00:59:16 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (33.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (59.7ms)
+Completed 200 OK in 798ms (Views: 785.9ms | ActiveRecord: 11.8ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 00:59:17 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (1.3ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.4ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.3ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (23.1ms)
+Completed 200 OK in 37ms (Views: 23.7ms | ActiveRecord: 6.5ms)
+
+
