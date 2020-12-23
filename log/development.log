@@ -8155,3 +8155,1316 @@ Processing by Api::ExercisesController#index as JSON
 Completed 200 OK in 37ms (Views: 23.7ms | ActiveRecord: 6.5ms)
 
 
+Started DELETE "/api/exercises/45" for ::1 at 2020-12-23 09:39:35 -0500
+Started DELETE "/api/exercises/45" for ::1 at 2020-12-23 09:39:35 -0500
+  [1m[35m (40.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (40.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+
+LoadError - Unable to autoload constant Api::ExercisesController, expected /home/jonathan/Desktop/ff2/app/controllers/api/exercises_controller.rb to define it:
+
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"45"}
+  [1m[36mUser Load (69.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (61.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 45], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.3ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 45]]
+  [1m[35m (44.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 449ms (Views: 2.2ms | ActiveRecord: 266.1ms)
+
+
+Started DELETE "/api/exercises/44" for ::1 at 2020-12-23 09:39:38 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"44"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 44], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.4ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 44]]
+  [1m[35m (22.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 32ms (Views: 1.0ms | ActiveRecord: 24.4ms)
+
+
+Started DELETE "/api/exercises/43" for ::1 at 2020-12-23 09:39:39 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"43"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 43], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.3ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 43]]
+  [1m[35m (8.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 15ms (Views: 0.7ms | ActiveRecord: 9.9ms)
+
+
+Started DELETE "/api/exercises/42" for ::1 at 2020-12-23 09:39:39 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"42"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 42], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.3ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 42]]
+  [1m[35m (10.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 20ms (Views: 1.0ms | ActiveRecord: 11.9ms)
+
+
+Started DELETE "/api/exercises/40" for ::1 at 2020-12-23 09:39:40 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"40"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (1.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 40], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.3ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 40]]
+  [1m[35m (25.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 51ms (Views: 1.1ms | ActiveRecord: 28.1ms)
+
+
+Started DELETE "/api/exercises/37" for ::1 at 2020-12-23 09:39:42 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"37"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 37], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.3ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 37]]
+  [1m[35m (6.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 13ms (Views: 0.6ms | ActiveRecord: 7.5ms)
+
+
+Started POST "/api/exercises" for ::1 at 2020-12-23 09:39:46 -0500
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (34.2ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 14:39:46.290674"], ["updated_at", "2020-12-23 14:39:46.290674"]]
+  [1m[35m (28.0ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.8ms)
+  Rendered api/exercises/show.json.jbuilder (21.3ms)
+Completed 200 OK in 131ms (Views: 55.7ms | ActiveRecord: 63.1ms)
+
+
+Started DELETE "/api/exercises/46" for ::1 at 2020-12-23 09:39:47 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"46"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.2ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 46], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.4ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 46]]
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 33ms (Views: 1.0ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 09:45:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (120.4ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (195.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (233.1ms)
+Completed 200 OK in 2522ms (Views: 2388.2ms | ActiveRecord: 130.1ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 09:45:50 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.5ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (4.7ms)
+Completed 200 OK in 18ms (Views: 8.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 09:46:55 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 376ms (Views: 373.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 09:46:55 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (2.5ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (13.3ms)
+Completed 200 OK in 31ms (Views: 16.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 09:47:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 414ms (Views: 412.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 09:47:40 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.9ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (7.2ms)
+Completed 200 OK in 20ms (Views: 11.1ms | ActiveRecord: 3.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 09:48:08 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 351ms (Views: 349.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 09:48:09 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.4ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (8.4ms)
+Completed 200 OK in 21ms (Views: 10.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 09:48:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 47ms (Views: 44.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 09:48:20 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (2.1ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.0ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (18.2ms)
+Completed 200 OK in 32ms (Views: 22.4ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 09:48:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 436ms (Views: 434.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 09:48:41 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (5.5ms)
+Completed 200 OK in 11ms (Views: 7.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 09:51:09 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (1.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 453ms (Views: 451.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 09:51:10 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (8.0ms)
+Completed 200 OK in 17ms (Views: 11.9ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:04:59 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (5.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 354ms (Views: 351.4ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:05:00 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.8ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (12.6ms)
+Completed 200 OK in 20ms (Views: 13.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:05:37 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 353ms (Views: 350.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:05:37 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (11.0ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.5ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (14.9ms)
+Completed 200 OK in 29ms (Views: 7.4ms | ActiveRecord: 17.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:06:44 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 309ms (Views: 307.2ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:06:45 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (8.4ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.7ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (18.3ms)
+Completed 200 OK in 29ms (Views: 14.9ms | ActiveRecord: 8.9ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:07:37 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 342ms (Views: 338.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:07:37 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.5ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.5ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.8ms)
+  Rendered api/exercises/index.json.jbuilder (6.8ms)
+Completed 200 OK in 15ms (Views: 9.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:09:23 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 443ms (Views: 440.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:09:24 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/index.json.jbuilder (10.3ms)
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:13:28 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 439ms (Views: 436.1ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:13:29 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (2.2ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.3ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (11.8ms)
+Completed 200 OK in 27ms (Views: 15.4ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:18:56 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (4.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 1171ms (Views: 1168.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:18:58 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.5ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.3ms)
+  Rendered api/exercises/index.json.jbuilder (6.3ms)
+Completed 200 OK in 16ms (Views: 9.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:42:14 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 343ms (Views: 340.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:42:14 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.3ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (16.1ms)
+Completed 200 OK in 27ms (Views: 19.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:42:37 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 35ms (Views: 33.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:42:37 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.8ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (16.6ms)
+Completed 200 OK in 26ms (Views: 19.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:42:46 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 335ms (Views: 333.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:42:47 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (4.2ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.4ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (9.5ms)
+Completed 200 OK in 15ms (Views: 7.3ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/api/benches" for ::1 at 2020-12-23 10:44:06 -0500
+Processing by Api::BenchesController#create as JSON
+  Parameters: {"bench"=>{"description"=>"wfwef", "seating"=>"2", "lat"=>"null", "lng"=>"null", "photo"=>#<ActionDispatch::Http::UploadedFile:0x00007f129d66dd28 @tempfile=#<Tempfile:/tmp/RackMultipart20201223-20695-5tlcoh.png>, @original_filename="Screenshot from 2019-10-05 20-37-58.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"bench[photo]\"; filename=\"Screenshot from 2019-10-05 20-37-58.png\"\r\nContent-Type: image/png\r\n">}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 124ms (ActiveRecord: 6.7ms)
+
+
+Started GET "/api/benches?bounds%5BnorthEast%5D%5Blat%5D=37.80788593713507&bounds%5BnorthEast%5D%5Blng%5D=-122.38838165576172&bounds%5BsouthWest%5D%5Blat%5D=37.74004249934129&bounds%5BsouthWest%5D%5Blng%5D=-122.47421234423828&minSeating=1&maxSeating=10" for ::1 at 2020-12-23 10:44:06 -0500
+
+NoMethodError - undefined method `[]' for nil:NilClass:
+  (erb):11:in `<main>'
+  app/controllers/api/benches_controller.rb:20:in `create'
+
+Processing by Api::BenchesController#index as JSON
+  Parameters: {"bounds"=>{"northEast"=>{"lat"=>"37.80788593713507", "lng"=>"-122.38838165576172"}, "southWest"=>{"lat"=>"37.74004249934129", "lng"=>"-122.47421234423828"}}, "minSeating"=>"1", "maxSeating"=>"10"}
+  Rendering api/benches/index.json.jbuilder
+  [1m[36mBench Load (0.9ms)[0m  [1m[34mSELECT "benches".* FROM "benches" WHERE (lat < '37.80788593713507') AND (lat > '37.74004249934129') AND (lng > '-122.47421234423828') AND (lng < '-122.38838165576172') AND "benches"."seating" BETWEEN $1 AND $2[0m  [["seating", 1], ["seating", 10]]
+  [1m[36mReview Load (44.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mFavorite Load (0.7ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 4]]
+  Rendered api/benches/_bench.json.jbuilder (55.3ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 5]]
+  Rendered api/benches/_bench.json.jbuilder (2.5ms)
+  Rendered api/benches/index.json.jbuilder (183.2ms)
+Completed 200 OK in 187ms (Views: 125.1ms | ActiveRecord: 60.5ms)
+
+
+Started POST "/api/benches" for ::1 at 2020-12-23 10:45:08 -0500
+Processing by Api::BenchesController#create as JSON
+  Parameters: {"bench"=>{"description"=>"asdf", "seating"=>"2", "lat"=>"null", "lng"=>"null", "photo"=>#<ActionDispatch::Http::UploadedFile:0x00007f129e291000 @tempfile=#<Tempfile:/tmp/RackMultipart20201223-20695-tould.png>, @original_filename="Screenshot from 2019-10-05 20-42-16.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"bench[photo]\"; filename=\"Screenshot from 2019-10-05 20-42-16.png\"\r\nContent-Type: image/png\r\n">}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.5ms)
+
+
+
+LoadError - Unable to autoload constant ActiveStorage::Blob::Analyzable, expected /home/jonathan/.rvm/gems/ruby-2.6.3@rails500/gems/activestorage-5.2.4.4/app/models/active_storage/blob/analyzable.rb to define it:
+  app/controllers/api/benches_controller.rb:20:in `create'
+
+Started GET "/api/benches?bounds%5BnorthEast%5D%5Blat%5D=37.80788593713507&bounds%5BnorthEast%5D%5Blng%5D=-122.38838165576172&bounds%5BsouthWest%5D%5Blat%5D=37.74004249934129&bounds%5BsouthWest%5D%5Blng%5D=-122.47421234423828&minSeating=1&maxSeating=10" for ::1 at 2020-12-23 10:45:08 -0500
+Processing by Api::BenchesController#index as JSON
+  Parameters: {"bounds"=>{"northEast"=>{"lat"=>"37.80788593713507", "lng"=>"-122.38838165576172"}, "southWest"=>{"lat"=>"37.74004249934129", "lng"=>"-122.47421234423828"}}, "minSeating"=>"1", "maxSeating"=>"10"}
+  Rendering api/benches/index.json.jbuilder
+  [1m[36mBench Load (0.4ms)[0m  [1m[34mSELECT "benches".* FROM "benches" WHERE (lat < '37.80788593713507') AND (lat > '37.74004249934129') AND (lng > '-122.47421234423828') AND (lng < '-122.38838165576172') AND "benches"."seating" BETWEEN $1 AND $2[0m  [["seating", 1], ["seating", 10]]
+  [1m[36mReview Load (1.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mFavorite Load (0.7ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 4]]
+  Rendered api/benches/_bench.json.jbuilder (2.5ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 5]]
+  Rendered api/benches/_bench.json.jbuilder (1.6ms)
+  Rendered api/benches/index.json.jbuilder (18.2ms)
+Completed 200 OK in 21ms (Views: 16.2ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:45:18 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 317ms (Views: 315.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/benches?bounds%5BnorthEast%5D%5Blat%5D=37.80788593713507&bounds%5BnorthEast%5D%5Blng%5D=-122.38838165576172&bounds%5BsouthWest%5D%5Blat%5D=37.74004249934129&bounds%5BsouthWest%5D%5Blng%5D=-122.47421234423828&minSeating=1&maxSeating=10" for ::1 at 2020-12-23 10:45:19 -0500
+Processing by Api::BenchesController#index as JSON
+  Parameters: {"bounds"=>{"northEast"=>{"lat"=>"37.80788593713507", "lng"=>"-122.38838165576172"}, "southWest"=>{"lat"=>"37.74004249934129", "lng"=>"-122.47421234423828"}}, "minSeating"=>"1", "maxSeating"=>"10"}
+  Rendering api/benches/index.json.jbuilder
+  [1m[36mBench Load (0.6ms)[0m  [1m[34mSELECT "benches".* FROM "benches" WHERE (lat < '37.80788593713507') AND (lat > '37.74004249934129') AND (lng > '-122.47421234423828') AND (lng < '-122.38838165576172') AND "benches"."seating" BETWEEN $1 AND $2[0m  [["seating", 1], ["seating", 10]]
+  [1m[36mReview Load (0.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mFavorite Load (0.7ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 4]]
+  Rendered api/benches/_bench.json.jbuilder (2.8ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 5]]
+  Rendered api/benches/_bench.json.jbuilder (2.3ms)
+  Rendered api/benches/index.json.jbuilder (25.6ms)
+Completed 200 OK in 30ms (Views: 24.0ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/api/benches" for ::1 at 2020-12-23 10:46:01 -0500
+Processing by Api::BenchesController#create as JSON
+  Parameters: {"bench"=>{"description"=>"sdf", "seating"=>"2", "lat"=>"null", "lng"=>"null", "photo"=>#<ActionDispatch::Http::UploadedFile:0x00007f129c608fa0 @tempfile=#<Tempfile:/tmp/RackMultipart20201223-20695-nwc366.png>, @original_filename="Screenshot from 2019-10-07 17-51-41.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"bench[photo]\"; filename=\"Screenshot from 2019-10-07 17-51-41.png\"\r\nContent-Type: image/png\r\n">}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.6ms)
+
+
+
+LoadError - Unable to autoload constant ActiveStorage::Blob::Analyzable, expected /home/jonathan/.rvm/gems/ruby-2.6.3@rails500/gems/activestorage-5.2.4.4/app/models/active_storage/blob/analyzable.rb to define it:
+  app/controllers/api/benches_controller.rb:20:in `create'
+
+Started GET "/api/benches?bounds%5BnorthEast%5D%5Blat%5D=37.80788593713507&bounds%5BnorthEast%5D%5Blng%5D=-122.38838165576172&bounds%5BsouthWest%5D%5Blat%5D=37.74004249934129&bounds%5BsouthWest%5D%5Blng%5D=-122.47421234423828&minSeating=1&maxSeating=10" for ::1 at 2020-12-23 10:46:01 -0500
+Processing by Api::BenchesController#index as JSON
+  Parameters: {"bounds"=>{"northEast"=>{"lat"=>"37.80788593713507", "lng"=>"-122.38838165576172"}, "southWest"=>{"lat"=>"37.74004249934129", "lng"=>"-122.47421234423828"}}, "minSeating"=>"1", "maxSeating"=>"10"}
+  Rendering api/benches/index.json.jbuilder
+  [1m[36mBench Load (0.9ms)[0m  [1m[34mSELECT "benches".* FROM "benches" WHERE (lat < '37.80788593713507') AND (lat > '37.74004249934129') AND (lng > '-122.47421234423828') AND (lng < '-122.38838165576172') AND "benches"."seating" BETWEEN $1 AND $2[0m  [["seating", 1], ["seating", 10]]
+  [1m[36mReview Load (0.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mFavorite Load (0.5ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 4]]
+  Rendered api/benches/_bench.json.jbuilder (7.1ms)
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 5]]
+  Rendered api/benches/_bench.json.jbuilder (3.5ms)
+  Rendered api/benches/index.json.jbuilder (24.3ms)
+Completed 200 OK in 30ms (Views: 21.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:47:12 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 324ms (Views: 322.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/benches?bounds%5BnorthEast%5D%5Blat%5D=37.80788593713507&bounds%5BnorthEast%5D%5Blng%5D=-122.38838165576172&bounds%5BsouthWest%5D%5Blat%5D=37.74004249934129&bounds%5BsouthWest%5D%5Blng%5D=-122.47421234423828&minSeating=1&maxSeating=10" for ::1 at 2020-12-23 10:47:13 -0500
+Processing by Api::BenchesController#index as JSON
+  Parameters: {"bounds"=>{"northEast"=>{"lat"=>"37.80788593713507", "lng"=>"-122.38838165576172"}, "southWest"=>{"lat"=>"37.74004249934129", "lng"=>"-122.47421234423828"}}, "minSeating"=>"1", "maxSeating"=>"10"}
+  Rendering api/benches/index.json.jbuilder
+  [1m[36mBench Load (0.6ms)[0m  [1m[34mSELECT "benches".* FROM "benches" WHERE (lat < '37.80788593713507') AND (lat > '37.74004249934129') AND (lng > '-122.47421234423828') AND (lng < '-122.38838165576172') AND "benches"."seating" BETWEEN $1 AND $2[0m  [["seating", 1], ["seating", 10]]
+  [1m[36mReview Load (1.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mFavorite Load (0.6ms)[0m  [1m[34mSELECT "favorites".* FROM "favorites" WHERE "favorites"."bench_id" IN ($1, $2)[0m  [["bench_id", 4], ["bench_id", 5]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" IN ($1, $2)[0m  [["id", 3], ["id", 4]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 4]]
+  Rendered api/benches/_bench.json.jbuilder (2.7ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT AVG("reviews"."rating") FROM "reviews" WHERE "reviews"."bench_id" = $1[0m  [["bench_id", 5]]
+  Rendered api/benches/_bench.json.jbuilder (2.4ms)
+  Rendered api/benches/index.json.jbuilder (23.0ms)
+Completed 200 OK in 29ms (Views: 24.6ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:47:16 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (2.0ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (8.0ms)
+Completed 200 OK in 16ms (Views: 9.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:49:56 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.0ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 388ms (Views: 386.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:49:57 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (1.2ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (9.9ms)
+Completed 200 OK in 20ms (Views: 14.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 10:50:34 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 343ms (Views: 341.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 10:50:35 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.5ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.4ms)
+  Rendered api/exercises/index.json.jbuilder (14.8ms)
+Completed 200 OK in 26ms (Views: 17.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:03:54 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (4.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 339ms (Views: 336.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:03:55 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (5.5ms)
+Completed 200 OK in 15ms (Views: 7.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:17:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (17.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (36.8ms)
+Completed 200 OK in 382ms (Views: 368.8ms | ActiveRecord: 12.8ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:17:30 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (26.8ms)
+Completed 200 OK in 57ms (Views: 27.6ms | ActiveRecord: 11.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:23:30 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 338ms (Views: 335.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:23:31 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (6.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.4ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.4ms)
+  Rendered api/exercises/index.json.jbuilder (10.3ms)
+Completed 200 OK in 38ms (Views: 24.4ms | ActiveRecord: 7.1ms)
+
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 12:23:55 -0500
+
+AbstractController::ActionNotFound - The action 'import' could not be found for Api::ExercisesController:
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 12:24:02 -0500
+
+AbstractController::ActionNotFound - The action 'import' could not be found for Api::ExercisesController:
+
+Started GET "/" for ::1 at 2020-12-23 12:26:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (17.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 55ms (Views: 42.1ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:26:43 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (23.1ms)
+Completed 200 OK in 47ms (Views: 21.3ms | ActiveRecord: 8.7ms)
+
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 12:26:47 -0500
+Processing by Api::ExercisesController#import as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+No template found for Api::ExercisesController#import, rendering head :no_content
+Completed 204 No Content in 17954ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:28:09 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 36ms (Views: 34.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:28:10 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.5ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (4.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (9.9ms)
+Completed 200 OK in 24ms (Views: 13.6ms | ActiveRecord: 2.5ms)
+
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 12:28:15 -0500
+Processing by Api::ExercisesController#import as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+No template found for Api::ExercisesController#import, rendering head :no_content
+Completed 204 No Content in 25147ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:32:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 351ms (Views: 348.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:32:03 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (11.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.8ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (17.6ms)
+Completed 200 OK in 24ms (Views: 8.6ms | ActiveRecord: 12.0ms)
+
+
+Started POST "/api/v1/csvs" for ::1 at 2020-12-23 12:32:09 -0500
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/csvs"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/" for ::1 at 2020-12-23 12:32:44 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 363ms (Views: 361.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:32:44 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (1.1ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.5ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (9.9ms)
+Completed 200 OK in 32ms (Views: 23.5ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 12:32:51 -0500
+Processing by Api::ExercisesController#import as JSON
+Can't verify CSRF token authenticity.
+Completed 422 Unprocessable Entity in 2ms (ActiveRecord: 0.0ms)
+
+
+
+ActionController::InvalidAuthenticityToken - ActionController::InvalidAuthenticityToken:
+
+Started GET "/" for ::1 at 2020-12-23 12:39:53 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 436ms (Views: 429.0ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:39:54 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.8ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (8.7ms)
+Completed 200 OK in 24ms (Views: 13.8ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:40:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 338ms (Views: 336.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:40:30 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (1.1ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.9ms)
+  Rendered api/exercises/_exercise.json.jbuilder (5.0ms)
+  Rendered api/exercises/index.json.jbuilder (11.9ms)
+Completed 200 OK in 20ms (Views: 14.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:42:23 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 332ms (Views: 329.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:42:24 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (2.2ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (7.3ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (28.1ms)
+Completed 200 OK in 47ms (Views: 37.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:42:50 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 372ms (Views: 368.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:42:51 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (6.5ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (10.7ms)
+Completed 200 OK in 22ms (Views: 8.7ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:43:03 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 340ms (Views: 338.5ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:43:04 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (2.2ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (5.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (2.6ms)
+  Rendered api/exercises/index.json.jbuilder (19.9ms)
+Completed 200 OK in 27ms (Views: 20.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:45:54 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (4.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 328ms (Views: 325.2ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:45:54 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (10.0ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (16.4ms)
+Completed 200 OK in 25ms (Views: 19.9ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/exercises" for ::1 at 2020-12-23 12:45:57 -0500
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+Started POST "/api/exercises" for ::1 at 2020-12-23 12:46:04 -0500
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Create (1079.6ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 17:46:04.468515"], ["updated_at", "2020-12-23 17:46:04.468515"]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.6ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 17:46:05.551975"], ["updated_at", "2020-12-23 17:46:05.551975"]]
+  [1m[35m (25.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.4ms)
+  Rendered api/exercises/show.json.jbuilder (1.5ms)
+Completed 200 OK in 8345ms (Views: 3.5ms | ActiveRecord: 1106.7ms)
+
+
+  [1m[35m (36.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/show.json.jbuilder (1.0ms)
+Completed 200 OK in 1118ms (Views: 3.5ms | ActiveRecord: 38.7ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:46:23 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (21.2ms)
+  Rendered static_pages/root.html.erb within layouts/application (39.9ms)
+Completed 200 OK in 67ms (Views: 54.0ms | ActiveRecord: 12.0ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:46:24 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (39.1ms)
+Completed 200 OK in 64ms (Views: 35.5ms | ActiveRecord: 20.9ms)
+
+
+Started POST "/api/exercises" for ::1 at 2020-12-23 12:46:25 -0500
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.4ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 17:46:25.296456"], ["updated_at", "2020-12-23 17:46:25.296456"]]
+  [1m[35m (25.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.5ms)
+  Rendered api/exercises/show.json.jbuilder (2.0ms)
+Completed 200 OK in 39ms (Views: 4.3ms | ActiveRecord: 26.7ms)
+
+
+Started DELETE "/api/exercises/49" for ::1 at 2020-12-23 12:46:26 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 49], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.3ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 49]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 13ms (Views: 0.7ms | ActiveRecord: 5.0ms)
+
+
+Started DELETE "/api/exercises/48" for ::1 at 2020-12-23 12:46:26 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"48"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 48], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.4ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 48]]
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 18ms (Views: 0.9ms | ActiveRecord: 11.6ms)
+
+
+Started DELETE "/api/exercises/47" for ::1 at 2020-12-23 12:46:27 -0500
+Processing by Api::ExercisesController#destroy as JSON
+  Parameters: {"id"=>"47"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1 AND "exercises"."id" = $2 LIMIT $3[0m  [["user_id", 3], ["id", 47], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Destroy (0.3ms)[0m  [1m[31mDELETE FROM "exercises" WHERE "exercises"."id" = $1[0m  [["id", 47]]
+  [1m[35m (8.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 14ms (Views: 0.8ms | ActiveRecord: 9.2ms)
+
+
+Started POST "/api/exercises" for ::1 at 2020-12-23 12:46:28 -0500
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.3ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 17:46:28.743310"], ["updated_at", "2020-12-23 17:46:28.743310"]]
+  [1m[35m (44.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.5ms)
+  Rendered api/exercises/show.json.jbuilder (3.5ms)
+Completed 200 OK in 59ms (Views: 6.8ms | ActiveRecord: 45.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:51:08 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 385ms (Views: 382.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:51:08 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.5ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.7ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (12.0ms)
+Completed 200 OK in 37ms (Views: 28.8ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 12:57:32 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (4.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 354ms (Views: 351.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 12:57:33 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.8ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.7ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.4ms)
+  Rendered api/exercises/index.json.jbuilder (18.0ms)
+Completed 200 OK in 26ms (Views: 20.4ms | ActiveRecord: 1.3ms)
+
+
+Started POST "/api/exercises" for ::1 at 2020-12-23 12:57:46 -0500
+Processing by Api::ExercisesController#create as JSON
+  Parameters: {"exercise"=>{"name"=>"testdummy", "description"=>"it's a test", "repetitions"=>"0", "sets"=>"0", "rest_time"=>"0", "user_id"=>"3"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.8ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "rest_time", "repetitions", "sets", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["name", "testdummy"], ["description", "it's a test"], ["rest_time", 0], ["repetitions", 0], ["sets", 0], ["user_id", 3], ["created_at", "2020-12-23 17:57:46.384666"], ["updated_at", "2020-12-23 17:57:46.384666"]]
+  [1m[35m (19.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/exercises/show.json.jbuilder
+  Rendered api/exercises/_exercise.json.jbuilder (0.5ms)
+  Rendered api/exercises/show.json.jbuilder (1.8ms)
+Completed 200 OK in 36ms (Views: 3.9ms | ActiveRecord: 22.0ms)
+
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 12:57:54 -0500
+Processing by Api::ExercisesController#import as JSON
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-12-23 13:04:40 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+No template found for Api::ExercisesController#import, rendering head :no_content
+Completed 204 No Content in 405988ms (ActiveRecord: 0.6ms)
+
+
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (7.9ms)
+  Rendered static_pages/root.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 377ms (Views: 373.6ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 13:04:41 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.6ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.6ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (21.7ms)
+Completed 200 OK in 34ms (Views: 25.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 13:04:42 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 13:04:43 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.5ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (6.3ms)
+Completed 200 OK in 31ms (Views: 25.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 13:11:16 -0500
+Processing by Api::ExercisesController#import as JSON
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+Started GET "/" for ::1 at 2020-12-23 13:11:31 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+No template found for Api::ExercisesController#import, rendering head :no_content
+Completed 204 No Content in 15055ms (ActiveRecord: 1.4ms)
+
+
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (5.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 401ms (Views: 396.4ms | ActiveRecord: 3.9ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 13:11:32 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.9ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.8ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (18.3ms)
+Completed 200 OK in 28ms (Views: 21.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 13:11:33 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (4.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 56ms (Views: 53.0ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 13:11:33 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.8ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.7ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.4ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/index.json.jbuilder (17.4ms)
+Completed 200 OK in 41ms (Views: 27.3ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 13:12:14 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 341ms (Views: 339.1ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 13:12:15 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (8.1ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (2.2ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.3ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.1ms)
+  Rendered api/exercises/_exercise.json.jbuilder (7.9ms)
+  Rendered api/exercises/index.json.jbuilder (48.9ms)
+Completed 200 OK in 103ms (Views: 78.3ms | ActiveRecord: 9.5ms)
+
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 13:12:55 -0500
+Processing by Api::ExercisesController#import as JSON
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+No template found for Api::ExercisesController#import, rendering head :no_content
+Completed 204 No Content in 175471ms (ActiveRecord: 1.4ms)
+
+
+Started GET "/" for ::1 at 2020-12-23 13:16:02 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "benches"."id" FROM "benches" INNER JOIN "favorites" ON "benches"."id" = "favorites"."bench_id" WHERE "favorites"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/users/_user.json.jbuilder (4.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 541ms (Views: 537.9ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/api/exercises" for ::1 at 2020-12-23 13:16:03 -0500
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered api/exercises/_exercise.json.jbuilder (0.9ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.3ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/_exercise.json.jbuilder (0.2ms)
+  Rendered api/exercises/index.json.jbuilder (10.2ms)
+Completed 200 OK in 17ms (Views: 12.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/exercises/import" for ::1 at 2020-12-23 13:17:20 -0500
+Processing by Api::ExercisesController#import as JSON
+  Parameters: {"id"=>"3", "file"=>#<ActionDispatch::Http::UploadedFile:0x00007f129d3db2b8 @tempfile=#<Tempfile:/tmp/RackMultipart20201223-20695-s0nain.csv>, @original_filename="test.csv", @content_type="text/csv", @headers="Content-Disposition: form-data; name=\"file\"; filename=\"test.csv\"\r\nContent-Type: text/csv\r\n">}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "VTRQw18RNQDg7SCGqSt6Aw"], ["LIMIT", 1]]
+No template found for Api::ExercisesController#import, rendering head :no_content
+Completed 204 No Content in 4505458ms (ActiveRecord: 0.6ms)
+
+

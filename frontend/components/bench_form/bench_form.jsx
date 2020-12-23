@@ -35,6 +35,8 @@ class BenchForm extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+    debugger
+    console.log(this.state)
   }
 
   // This will be where we create our form data to submit our photo

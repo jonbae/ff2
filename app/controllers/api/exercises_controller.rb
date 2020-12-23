@@ -44,6 +44,11 @@ class Api::ExercisesController < ApplicationController
         render json:@exercise 
     end
 
+    def import 
+        tempfile = params['file'].tempfile
+        debugger
+    end
+
 
 
 
