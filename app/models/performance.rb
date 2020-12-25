@@ -9,15 +9,16 @@
 #  repetitions :integer
 #  sets        :integer
 #  exercise_id :integer          not null
+#  user_id     :integer          not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 class Performance < ApplicationRecord
 
-    has_one :user, 
-    through: :exercise, 
-    
-
+    belongs_to :user, 
+        foreign_key: :user_id, 
+        class_name: :User
+        
     belongs_to :exercise, 
         foreign_key: :exercise_id, 
         class_name: :Exercise

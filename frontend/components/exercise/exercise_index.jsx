@@ -17,17 +17,15 @@ class ExerciseIndex extends React.Component {
     }
 
     componentDidMount() {
+        this.props.requestUsers(); 
         this.props.requestExercises(); 
     }
 
     createNewExercise(e) {
-         
         const blankExercise = {
             name: "testdummy",
             description: "it's a test",
-            repetitions: 0, 
-            sets: 0, 
-            rest_time: 0,
+
             user_id: this.props.currentUser.id
         }
 
@@ -57,10 +55,12 @@ class ExerciseIndex extends React.Component {
 
 
     renderExercises(exercises) {
+        
         let exerciseItem = exercises.map(exercise => (
             <ExerciseIndexItem 
                 key={exercise.id} 
                 exercise={exercise}   
+                trainees={this.props.trainees}
                 deleteExercise={this.props.deleteExercise} 
             />
         ))

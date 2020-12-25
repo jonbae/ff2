@@ -20,8 +20,10 @@ class Api::ExercisesController < ApplicationController
     def show 
         @exercise = current_user.exercises.find(params[:id])
         @exercise.user_id = current_user.id
-        
-        if @exercise
+        debugger
+        @performances = @exercise.performances 
+        debugger
+        if @exercise.save!
             render :show
         else
             render json:@exercise.errors.full_messages, status: 422
@@ -74,7 +76,7 @@ class Api::ExercisesController < ApplicationController
 
     private 
     def exercise_params
-        params.require(:exercise).permit(:id, :description, :name, :repetitions, :rest_time, :sets, :user_id )
+        params.require(:exercise).permit(:id, :name, :description, :user_id )
     end
 
 end

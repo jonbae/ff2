@@ -1,2 +1,3 @@
 json.extract! user, :id, :username
-json.favorite_benches user.favorite_benches.pluck(:id)
+json.traineeIds user.trainees.pluck(:id) unless user.trainees.empty? 
+json.trainerId user.trainer.id if user.trainer

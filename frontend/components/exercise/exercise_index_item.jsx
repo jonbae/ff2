@@ -8,6 +8,21 @@ class ExerciseIndexItem extends React.Component {
         
     }
 
+    renderTraineeSelect(trainees) {
+        
+        let traineeSelect =  trainees.map(trainee => (
+            <option value={trainee.username}>{trainee.username}</option>
+        ))
+
+        
+
+        return (
+            <select>
+                <option value="">--Select--</option>
+                {traineeSelect}
+            </select>
+        )
+    }
 
     render() {
         return (
@@ -18,7 +33,7 @@ class ExerciseIndexItem extends React.Component {
                 <li>
                     {this.props.exercise.description}
                 </li>
-                <li>
+                {/* <li>
                     {this.props.exercise.sets}
                 </li>
                 <li>
@@ -26,12 +41,15 @@ class ExerciseIndexItem extends React.Component {
                 </li>
                 <li>
                     {this.props.exercise.rest_time}
-                </li>
+                </li> */}
                 <li>
                     <Link to={`/exercises/${this.props.exercise.id}/update`}>Modify Exercise</Link>
                 </li>
                 <li>
                     <button onClick={() => this.props.deleteExercise(this.props.exercise.id)}>Delete Exercise</button>
+                </li>
+                <li>
+                    {this.renderTraineeSelect(this.props.trainees)}
                 </li>
             </div>
         )

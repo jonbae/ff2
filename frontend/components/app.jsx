@@ -18,6 +18,7 @@ import ExerciseIndexContainer from './exercise/exercise_index_container'
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import CreateExerciseFormContainer from './exercise_form/create_exercise_form_container'
 import UpdateExerciseFormContainer from './exercise_form/update_exercise_form_container'
+// import TraineeContainer from './'
 
 
 const App = () => (
@@ -37,9 +38,10 @@ const App = () => (
 
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
-      <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
-      <Route path="/benches/:benchId" component={BenchShowContainer} />
-      <Route exact path="/" component={SearchContainer} />
+      {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
+      <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
+      {/* <Route exact path="/" component={SearchContainer} /> */}
+      {/* <Route exact path="/" component={TraineeContainer} />  */}
     </Switch>
   </div>
 );

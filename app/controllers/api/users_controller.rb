@@ -10,6 +10,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def index 
+    
+    @users = User.where(trainer_id: current_user.id)
+      .or(User.where(id: current_user.id)) 
+    return :index
+
+  end
+
+
   private
 
   def user_params

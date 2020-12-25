@@ -9,9 +9,9 @@ class ExerciseForm extends React.Component {
             id: this.props.exercise === undefined ? "" : this.props.exercise.id,
             name: this.props.exercise === undefined ? "" : this.props.exercise.name, 
             description: this.props.exercise === undefined ? "" : this.props.exercise.description,
-            sets: this.props.exercise === undefined ? 0 : this.props.exercise.sets, 
-            repetitions: this.props.exercise === undefined ? 0 : this.props.exercise.repetitions, 
-            rest_time: this.props.exercise === undefined ? 0 : this.props.exercise.rest_time,
+            // sets: this.props.exercise === undefined ? 0 : this.props.exercise.sets, 
+            // repetitions: this.props.exercise === undefined ? 0 : this.props.exercise.repetitions, 
+            // rest_time: this.props.exercise === undefined ? 0 : this.props.exercise.rest_time,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -32,7 +32,7 @@ class ExerciseForm extends React.Component {
     }
 
     render() {
-        const {name, description, sets, repetitions, rest_time} = this.state; 
+        const {name, description} = this.state; 
         const mode = this.props.formType
         return (
             <div className="new-exercise-frame">
@@ -46,14 +46,14 @@ class ExerciseForm extends React.Component {
                             <label className="exercise-field">Description</label>
                             <input type="text" value={description} onChange={this.update('description')}/>
 
-                            <label className="exercise-field">Number of Sets</label>
+                            {/* <label className="exercise-field">Number of Sets</label>
                             <input type="number" value={sets} onChange={this.update('sets')}/>
                             
                             <label className="exercise-field">Number of Reps</label>
                             <input type="number" value={repetitions} onChange={this.update('repetitions')}/>
 
                             <label className="exercise-field">Rest time</label>
-                            <input type="number" value={rest_time} onChange={this.update('rest_time')}/>
+                            <input type="number" value={rest_time} onChange={this.update('rest_time')}/> */}
 
                             <input type="submit" value={`${mode} Exercise`}/>
                         </form>
