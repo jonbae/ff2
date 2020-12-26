@@ -1,4 +1,5 @@
 import { RECEIVE_EXERCISE,RECEIVE_EXERCISES, REMOVE_EXERCISE } from "../actions/exercise_actions";
+import { RECEIVE_PERFORMANCES } from "../actions/performance_actions";
 
 
 const exercisesReducer = (state={}, action) => {
@@ -18,6 +19,10 @@ const exercisesReducer = (state={}, action) => {
             newState = Object.assign({}, state); 
             delete newState[action.exerciseId]; 
             return newState; 
+
+        case RECEIVE_PERFORMANCES: 
+            
+            return Object.assign({}, state, action.exercises)
         default: 
             return state;
     }

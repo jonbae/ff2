@@ -35,3 +35,25 @@ export const selectExercisePerformances = (state,exerciseId) => {
     performance => performance.exerciseId === exerciseId
   )
 }
+
+export const selectPerformancesWithExercise = (state) => {
+  let performances = Object.values(state.entities.performances);
+  let exercises = Object.values(state.entities.exercises)
+
+  performances.filter( 
+    performance => performance.userId === state.session.id
+  )
+
+  for(const performance of performances) {
+    for(const exercise of exercises) {
+      if(performance.exerciseId == exercise.id){
+    
+        performance.exercise = exercise
+      }
+    }
+  }
+
+  return performances
+
+
+}

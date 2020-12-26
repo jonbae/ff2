@@ -7,9 +7,10 @@ import {
 const performancesReducer = (state = {}, action) => {
     Object.freeze(state) 
     let newState;
+    
     switch(action.type) {
         case RECEIVE_PERFORMANCES: 
-            return action.performances;
+            return Object.assign({}, state, action.performances)
         case RECEIVE_PERFORMANCE: 
             newState = { [action.performance.id]: action.performance };
             return Object.assign({}, state, newState); 

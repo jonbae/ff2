@@ -12,7 +12,7 @@ class ExerciseIndexItem extends React.Component {
 
     render() {
         return (
-            <div>
+            <ul>
                 <li>
                     {this.props.exercise.name}
                 </li>
@@ -30,7 +30,7 @@ class ExerciseIndexItem extends React.Component {
                     <Link to={`/exercises/${this.props.exercise.id}/performances/new`}>Assign exercise to trainee</Link>
                 </li>
 
-            </div>
+            </ul>
         )
     }
 }

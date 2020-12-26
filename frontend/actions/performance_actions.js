@@ -6,13 +6,20 @@ export const RECEIVE_PERFORMANCE = "RECEIVE_PERFORMANCE";
 export const REMOVE_PERFORMANCE = "REMOVE_PERFORMANCE"; 
 
 
-export const receiveExercisePerformances = performances => {
+export const receiveExercisePerformances = payload => {
     return {
         type: RECEIVE_PERFORMANCES, 
-        performances
-        // exercise: payload.exercise,
-        // performances: payload.performances, 
+        performances: payload.performances, 
+        exercises: payload.exercises
+    }
+}
 
+export const receivePerformances = payload => {
+    debugger
+    return {
+        type: RECEIVE_PERFORMANCES,
+        performances: payload.performances, 
+        exercises: payload.exercises
     }
 }
 
@@ -35,6 +42,12 @@ export const requestExercisePerformances = exercise => dispatch => {
         return dispatch(receiveExercisePerformances(performances))
     })
 } 
+
+export const requestPerformances = () => dispatch => {
+    return APIUtil.fetchPerformances().then( performances => {
+        return dispatch(receivePerformances(performances))
+    })
+}
 
 export const requestPerformance = id => dispatch => {
     return APIUtil.fetchPerformance(id).then( performance => {

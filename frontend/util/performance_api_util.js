@@ -20,6 +20,13 @@ export const fetchExercisePerformances = exercise => {
     })
 }
 
+export const fetchPerformances = () => {
+    return $.ajax({
+        url: 'api/performances', 
+        method: 'get', 
+    })
+}
+
 export const createPerformance = (performance) => {
     return $.ajax({
         url: 'api/performances', 

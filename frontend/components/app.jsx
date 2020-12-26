@@ -22,7 +22,8 @@ import UpdateExerciseFormContainer from './exercise_form/update_exercise_form_co
 
 // import CreatePerformanceFormContainer from './performance_form/create_performance_form_container'
 import CreatePerformanceFormContainer from "./performance_form/create_performance_form_container";
-
+import Landing from "./landing/landing";
+import PerformanceIndexContainer from "./performance/performance_index_container"
 
 const App = () => (
   <div>
@@ -32,19 +33,18 @@ const App = () => (
     </header>
     <Switch>
       <ProtectedRoute exact path="/exercises" component={ExerciseIndexContainer} />
-      
       <ProtectedRoute exact path="/exercises/new" component={CreateExerciseFormContainer} />
       <ProtectedRoute exact path="/exercises/:exerciseId/update" component={UpdateExerciseFormContainer} />
       <ProtectedRoute exact path="/exercises/:exerciseId/performances/new" component={CreatePerformanceFormContainer} />
 
-      {/* <ProtectedRoute exact path="/exercises/:exerciseId/performances/new" componenent={CreatePerformanceForm} /> */}
+      <ProtectedRoute exact path="/performances" component={PerformanceIndexContainer} />
 
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
       <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
       {/* <Route exact path="/" component={SearchContainer} /> */}
-
+      <Route exact path="/" component={Landing} /> 
     </Switch>
   </div>
 );

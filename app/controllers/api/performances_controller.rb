@@ -1,11 +1,8 @@
 class Api::PerformancesController < ApplicationController
-
     before_action :require_logged_in
 
     def create
         @performance = Performance.new(performance_params)
-        debugger
-
         if @performance.save 
             render :show 
         else 
@@ -21,8 +18,16 @@ class Api::PerformancesController < ApplicationController
     end
 
     def index 
-        exercise = Exercise.find(exercise_params[:id])
-        @performances = exercise.performances
+        
+        unless params[:exercise].nil?
+            exercise = Exercise.find(exercise_params[:id])
+            @performances = exercise.performances
+            
+        else
+            
+            @performances = Performance.where(user_id: @current_user.id)
+        end
+        
     end
 
 
