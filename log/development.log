@@ -19740,3 +19740,264 @@ Completed 200 OK in 40ms (Views: 22.7ms | ActiveRecord: 8.0ms)
 Completed 200 OK in 78ms (Views: 54.0ms | ActiveRecord: 13.1ms)
 
 
+Started GET "/" for ::1 at 2020-12-26 03:01:48 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (3.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 36ms (Views: 33.1ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/users" for ::1 at 2020-12-26 03:01:48 -0500
+Processing by Api::UsersController#index as JSON
+Started GET "/api/performances?exercise%5Bid%5D=24" for ::1 at 2020-12-26 03:01:48 -0500
+Processing by Api::PerformancesController#index as JSON
+  Parameters: {"exercise"=>{"id"=>"24"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  Rendering api/performances/index.json.jbuilder
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE ("users"."trainer_id" = $1 OR "users"."id" = $2)[0m  [["trainer_id", 11], ["id", 11]]
+  [1m[36mPerformance Load (5.7ms)[0m  [1m[34mSELECT "performances".* FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 24]]
+  Rendered api/performances/_performance.json.jbuilder (0.4ms)
+  Rendered api/performances/_performance.json.jbuilder (0.2ms)
+  Rendered api/performances/index.json.jbuilder (11.5ms)
+  [1m[36mUser Exists (4.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 12], ["LIMIT", 1]]
+Completed 200 OK in 35ms (Views: 13.1ms | ActiveRecord: 7.3ms)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (11.5ms)
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (4.6ms)
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered api/users/index.json.jbuilder (28.6ms)
+Completed 200 OK in 59ms (Views: 30.7ms | ActiveRecord: 9.1ms)
+
+
+Started POST "/api/performances" for ::1 at 2020-12-26 03:01:58 -0500
+Processing by Api::PerformancesController#create as JSON
+  Parameters: {"performance"=>{"id"=>"", "sets"=>"1", "repetitions"=>"1", "rest_time"=>"1", "weight"=>"1", "duration"=>"1", "exercise_id"=>"24", "user_id"=>"13"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  Rendering api/performances/show.json.jbuilder
+  Rendered api/performances/_performance.json.jbuilder (0.3ms)
+  Rendered api/performances/show.json.jbuilder (1.9ms)
+Completed 200 OK in 8ms (Views: 4.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2020-12-26 03:02:08 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (3.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 48ms (Views: 45.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users" for ::1 at 2020-12-26 03:02:09 -0500
+Started GET "/api/performances?exercise%5Bid%5D=24" for ::1 at 2020-12-26 03:02:09 -0500
+Processing by Api::UsersController#index as JSON
+Processing by Api::PerformancesController#index as JSON
+  Parameters: {"exercise"=>{"id"=>"24"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  Rendering api/performances/index.json.jbuilder
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE ("users"."trainer_id" = $1 OR "users"."id" = $2)[0m  [["trainer_id", 11], ["id", 11]]
+  [1m[36mPerformance Load (10.1ms)[0m  [1m[34mSELECT "performances".* FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 24]]
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 12], ["LIMIT", 1]]
+  Rendered api/performances/_performance.json.jbuilder (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (9.4ms)
+  Rendered api/performances/_performance.json.jbuilder (0.2ms)
+  Rendered api/performances/index.json.jbuilder (26.6ms)
+Completed 200 OK in 39ms (Views: 19.8ms | ActiveRecord: 11.5ms)
+
+
+  [1m[36mUser Exists (3.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (10.8ms)
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (7.9ms)
+  Rendered api/users/index.json.jbuilder (43.6ms)
+Completed 200 OK in 66ms (Views: 40.5ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/api/users" for ::1 at 2020-12-26 03:02:25 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE ("users"."trainer_id" = $1 OR "users"."id" = $2)[0m  [["trainer_id", 11], ["id", 11]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 12], ["LIMIT", 1]]
+Started GET "/api/exercises" for ::1 at 2020-12-26 03:02:25 -0500
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (14.5ms)
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 13], ["LIMIT", 1]]
+Processing by Api::ExercisesController#index as JSON
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (52.8ms)
+  Rendering api/exercises/index.json.jbuilder
+  [1m[36mUser Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.7ms)[0m  [1m[34mSELECT "exercises".* FROM "exercises" WHERE "exercises"."user_id" = $1[0m  [["user_id", 11]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (4.3ms)
+  Rendered api/users/index.json.jbuilder (80.5ms)
+Completed 200 OK in 88ms (Views: 77.8ms | ActiveRecord: 5.0ms)
+
+
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "performances"."id" FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 24]]
+  Rendered api/exercises/_exercise.json.jbuilder (2.7ms)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "performances"."id" FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 25]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.6ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "performances"."id" FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 26]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.7ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "performances"."id" FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 27]]
+  Rendered api/exercises/_exercise.json.jbuilder (1.1ms)
+  Rendered api/exercises/index.json.jbuilder (11.9ms)
+Completed 200 OK in 63ms (Views: 11.9ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/api/users" for ::1 at 2020-12-26 03:02:27 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE ("users"."trainer_id" = $1 OR "users"."id" = $2)[0m  [["trainer_id", 11], ["id", 11]]
+Started GET "/api/performances?exercise%5Bid%5D=24" for ::1 at 2020-12-26 03:02:27 -0500
+  [1m[36mUser Exists (6.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 12], ["LIMIT", 1]]
+Processing by Api::PerformancesController#index as JSON
+  Parameters: {"exercise"=>{"id"=>"24"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mUser Load (6.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (17.1ms)
+  [1m[36mExercise Load (1.2ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering api/performances/index.json.jbuilder
+  Rendered api/users/_user.json.jbuilder (4.7ms)
+  [1m[36mPerformance Load (1.2ms)[0m  [1m[34mSELECT "performances".* FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 24]]
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  Rendered api/performances/_performance.json.jbuilder (2.2ms)
+  Rendered api/performances/_performance.json.jbuilder (0.4ms)
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/performances/index.json.jbuilder (8.5ms)
+  Rendered api/users/_user.json.jbuilder (6.9ms)
+Completed 200 OK in 22ms (Views: 10.9ms | ActiveRecord: 2.9ms)
+
+
+  Rendered api/users/index.json.jbuilder (36.5ms)
+Completed 200 OK in 45ms (Views: 24.1ms | ActiveRecord: 17.1ms)
+
+
+  [1m[36mPerformance Load (0.5ms)[0m  [1m[34mSELECT "performances".* FROM "performances"[0m
+Started GET "/" for ::1 at 2020-12-26 03:04:20 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (4.1ms)
+  Rendered static_pages/root.html.erb within layouts/application (20.4ms)
+Completed 200 OK in 41ms (Views: 35.3ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/api/users" for ::1 at 2020-12-26 03:04:20 -0500
+Started GET "/api/performances?exercise%5Bid%5D=24" for ::1 at 2020-12-26 03:04:20 -0500
+Processing by Api::PerformancesController#index as JSON
+Processing by Api::UsersController#index as JSON
+  Parameters: {"exercise"=>{"id"=>"24"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (8.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE ("users"."trainer_id" = $1 OR "users"."id" = $2)[0m  [["trainer_id", 11], ["id", 11]]
+  [1m[36mUser Exists (4.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 12], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (29.7ms)
+  [1m[36mUser Exists (3.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (11.1ms)
+  Rendering api/performances/index.json.jbuilder
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (10.0ms)
+  [1m[36mPerformance Load (3.9ms)[0m  [1m[34mSELECT "performances".* FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 24]]
+  Rendered api/users/index.json.jbuilder (65.0ms)
+Completed 200 OK in 86ms (Views: 55.3ms | ActiveRecord: 19.6ms)
+
+
+  Rendered api/performances/_performance.json.jbuilder (0.7ms)
+  Rendered api/performances/_performance.json.jbuilder (0.3ms)
+  Rendered api/performances/index.json.jbuilder (38.5ms)
+Completed 200 OK in 106ms (Views: 32.5ms | ActiveRecord: 29.1ms)
+
+
+Started POST "/api/performances" for ::1 at 2020-12-26 03:04:25 -0500
+Processing by Api::PerformancesController#create as JSON
+  Parameters: {"performance"=>{"id"=>"", "sets"=>"1", "repetitions"=>"1", "rest_time"=>"1", "weight"=>"1", "duration"=>"1", "exercise_id"=>"24", "user_id"=>"13"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.2ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mPerformance Create (0.5ms)[0m  [1m[32mINSERT INTO "performances" ("duration", "weight", "rest_time", "repetitions", "sets", "exercise_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["duration", 1], ["weight", 1], ["rest_time", 1], ["repetitions", 1], ["sets", 1], ["exercise_id", 24], ["user_id", 13], ["created_at", "2020-12-26 08:04:41.079248"], ["updated_at", "2020-12-26 08:04:41.079248"]]
+  [1m[35m (18.4ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/performances/show.json.jbuilder
+  Rendered api/performances/_performance.json.jbuilder (0.5ms)
+  Rendered api/performances/show.json.jbuilder (1.9ms)
+Completed 200 OK in 15606ms (Views: 4.3ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/" for ::1 at 2020-12-26 03:04:44 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (4.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 34ms (Views: 32.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/users" for ::1 at 2020-12-26 03:04:45 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE ("users"."trainer_id" = $1 OR "users"."id" = $2)[0m  [["trainer_id", 11], ["id", 11]]
+Started GET "/api/performances?exercise%5Bid%5D=24" for ::1 at 2020-12-26 03:04:45 -0500
+Processing by Api::PerformancesController#index as JSON
+  [1m[36mUser Exists (4.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 12], ["LIMIT", 1]]
+  Parameters: {"exercise"=>{"id"=>"24"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "rSvSxSYtIzhfPeZosHyipA"], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 24], ["LIMIT", 1]]
+  [1m[36mUser Load (5.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (18.1ms)
+  Rendering api/performances/index.json.jbuilder
+  [1m[36mPerformance Load (3.1ms)[0m  [1m[34mSELECT "performances".* FROM "performances" WHERE "performances"."exercise_id" = $1[0m  [["exercise_id", 24]]
+  [1m[36mUser Exists (1.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 13], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (7.8ms)
+  Rendered api/performances/_performance.json.jbuilder (1.2ms)
+  Rendered api/performances/_performance.json.jbuilder (0.2ms)
+  Rendered api/performances/_performance.json.jbuilder (0.2ms)
+  Rendered api/performances/index.json.jbuilder (14.3ms)
+Completed 200 OK in 24ms (Views: 15.6ms | ActiveRecord: 3.9ms)
+
+
+  [1m[36mUser Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 11], ["LIMIT", 1]]
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 11]]
+  Rendered api/users/_user.json.jbuilder (7.3ms)
+  Rendered api/users/index.json.jbuilder (43.3ms)
+Completed 200 OK in 49ms (Views: 28.2ms | ActiveRecord: 17.7ms)
+
+

@@ -4,7 +4,14 @@ class Api::PerformancesController < ApplicationController
 
     def create
         @performance = Performance.new(performance_params)
-        render :show 
+        debugger
+
+        if @performance.save 
+            render :show 
+        else 
+            render json:@performance.errors.full_messages, status: 422
+        end
+
     end
 
     def show
