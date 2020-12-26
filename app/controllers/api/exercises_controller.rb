@@ -20,9 +20,7 @@ class Api::ExercisesController < ApplicationController
     def show 
         @exercise = current_user.exercises.find(params[:id])
         @exercise.user_id = current_user.id
-        debugger
         @performances = @exercise.performances 
-        debugger
         if @exercise.save!
             render :show
         else

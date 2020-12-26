@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       collection { post :import}
     end
 
-    resources :performances, only: [:create, :destroy]
+    resources :performances, only: [:create, :destroy, :index, :show]
 
 
     

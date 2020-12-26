@@ -1,1 +1,0 @@
-json.extract! performance, :id, :exercise_id, :user_id, :weight, :duration, :rest_time, :sets, :repetitions

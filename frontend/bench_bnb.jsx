@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import { createExercise } from './util/exercise_api_util';
-import { createPerformance, deletePerformance, fetchPerformances } from "./util/performance_api_util";
+import { createPerformance, deletePerformance, fetchPerformance, fetchExercisePerformances } from "./util/performance_api_util";
 import { fetchUsers } from './util/session_api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,7 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createPerformance = createPerformance; 
   window.deletePerformance = deletePerformance;
   window.fetchUsers = fetchUsers;
-  // window.fetchPerformances = fetchPerformances;
+  window.fetchPerformance = fetchPerformance;
+  window.fetchExercisePerformances = fetchExercisePerformances;  
   //testing end
 
   let store;
