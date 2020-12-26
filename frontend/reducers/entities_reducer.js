@@ -4,10 +4,12 @@ import benches from './benches_reducer';
 import reviews from './reviews_reducer';
 import users from './users_reducer';
 import exercises from './exercises_reducer'
+import performances from './performances_reducer'
 
 export default combineReducers({
   benches,
   reviews,
   users,
   exercises, 
+  performances, 
 });

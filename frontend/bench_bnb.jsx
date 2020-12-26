@@ -5,21 +5,17 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import { createExercise } from './util/exercise_api_util';
-
+import { createPerformance, deletePerformance, fetchPerformance, fetchExercisePerformances } from "./util/performance_api_util";
+import { fetchUsers } from './util/session_api_util'
 
 document.addEventListener('DOMContentLoaded', () => {
+  
   //testing start
-  window.createExercise = createExercise;
-  /*
-  ({
-    name: "something", 
-    description: "woiefowiejfowiejfowef",
-    repetitions: 9,
-    rest_time: 9, 
-    sets: 1, 
-    user_id: 1
-  })
-  */ 
+  window.createPerformance = createPerformance; 
+  window.deletePerformance = deletePerformance;
+  window.fetchUsers = fetchUsers;
+  window.fetchPerformance = fetchPerformance;
+  window.fetchExercisePerformances = fetchExercisePerformances;  
   //testing end
 
   let store;

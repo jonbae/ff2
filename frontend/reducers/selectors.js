@@ -12,10 +12,26 @@ export const asArray = ({ benches }) => (
 export const selectExercises = state => {
   
   let exercises = Object.values(state.entities.exercises); 
-
+  
   return exercises.filter(
     //fix user_id to userId
     
     exercise => exercise.user_id === state.session.id
+  )
+}
+
+export const selectTrainees = state => {
+  let users = Object.values(state.entities.users); 
+  
+
+  return users.filter( 
+    user => user.trainerId === state.session.id
+  )
+}
+
+export const selectExercisePerformances = (state,exerciseId) => {
+  let performances = Object.values(state.entities.performances); 
+  return performances.filter(
+    performance => performance.exerciseId === exerciseId
   )
 }

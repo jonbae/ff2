@@ -9,6 +9,7 @@ class ExerciseIndexItem extends React.Component {
     }
 
 
+
     render() {
         return (
             <div>
@@ -18,21 +19,17 @@ class ExerciseIndexItem extends React.Component {
                 <li>
                     {this.props.exercise.description}
                 </li>
-                <li>
-                    {this.props.exercise.sets}
-                </li>
-                <li>
-                    {this.props.exercise.repetitions}
-                </li>
-                <li>
-                    {this.props.exercise.rest_time}
-                </li>
+
                 <li>
                     <Link to={`/exercises/${this.props.exercise.id}/update`}>Modify Exercise</Link>
                 </li>
                 <li>
                     <button onClick={() => this.props.deleteExercise(this.props.exercise.id)}>Delete Exercise</button>
                 </li>
+                <li>
+                    <Link to={`/exercises/${this.props.exercise.id}/performances/new`}>Assign exercise to trainee</Link>
+                </li>
+
             </div>
         )
     }

@@ -3,9 +3,7 @@ class CreateExercises < ActiveRecord::Migration[5.2]
     create_table :exercises do |t|
       t.string :name, null: false
       t.text :description
-      t.integer :rest_time
-      t.integer :repetitions
-      t.integer :sets 
+
 
       t.integer :user_id, null: false
       

@@ -8,3 +8,5 @@ master.key
 
 public/assets/*
 node_modules
+tmp
+log/development.log

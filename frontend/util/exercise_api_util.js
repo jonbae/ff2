@@ -31,7 +31,6 @@ export const updateExercise = exercise => {
 }
 
 export const deleteExercise = id => {
-     
     return $.ajax({
         method: 'delete', 
         url: `api/exercises/${id}`

@@ -6,20 +6,21 @@ export const RECEIVE_EXERCISE = 'RECEIVE_EXERCISE';
 export const REMOVE_EXERCISE = 'REMOVE_EXERCISE';
 
 
-export const receieveExercises = exercises => {
-     
+export const receieveExercises = exercises => { 
     return {
-    type: RECEIVE_EXERCISES, 
-    exercises
-}}
+        type: RECEIVE_EXERCISES, 
+        exercises
+    }
+}
 
  // or payload
 export const receieveExercise = ( {exercise} ) => {
        
     return {
-    type: RECEIVE_EXERCISE, 
-    exercise
-}}
+        type: RECEIVE_EXERCISE, 
+        exercise
+    }
+}
 
 export const removeExercise = exercise => {
      
