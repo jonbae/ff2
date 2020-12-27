@@ -29,6 +29,11 @@ export const selectTrainees = state => {
   )
 }
 
+export const selectTrainer = (state,trainerId) => {
+  let users = Object.values(state.entities.users); 
+  return users.filter( user => user.id === trainerId); 
+}
+
 export const selectExercisePerformances = (state,exerciseId) => {
   let performances = Object.values(state.entities.performances); 
   return performances.filter(

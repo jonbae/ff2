@@ -13,8 +13,13 @@ class Api::UsersController < ApplicationController
   def index 
     
     @users = User.where(trainer_id: current_user.id)
-      .or(User.where(id: current_user.id)) 
     return :index
+
+  end
+
+  def show 
+    # return the trainer 
+    @user = User.find(params[:id])
 
   end
 

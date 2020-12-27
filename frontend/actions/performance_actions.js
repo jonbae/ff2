@@ -15,7 +15,7 @@ export const receiveExercisePerformances = payload => {
 }
 
 export const receivePerformances = payload => {
-    debugger
+    
     return {
         type: RECEIVE_PERFORMANCES,
         performances: payload.performances, 

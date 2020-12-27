@@ -19,6 +19,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import CreateExerciseFormContainer from './exercise_form/create_exercise_form_container'
 import UpdateExerciseFormContainer from './exercise_form/update_exercise_form_container'
 // import TraineeContainer from './'
+import UserIndexContainer from './user/user_index_container'
 
 // import CreatePerformanceFormContainer from './performance_form/create_performance_form_container'
 import CreatePerformanceFormContainer from "./performance_form/create_performance_form_container";
@@ -38,12 +39,13 @@ const App = () => (
       <ProtectedRoute exact path="/exercises/:exerciseId/performances/new" component={CreatePerformanceFormContainer} />
 
       <ProtectedRoute exact path="/performances" component={PerformanceIndexContainer} />
-
+      <ProtectedRoute exact path="/users" component={UserIndexContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />
       <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
       {/* <Route exact path="/" component={SearchContainer} /> */}
+      
       <Route exact path="/" component={Landing} /> 
     </Switch>
   </div>

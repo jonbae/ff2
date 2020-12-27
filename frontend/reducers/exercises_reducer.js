@@ -5,7 +5,6 @@ import { RECEIVE_PERFORMANCES } from "../actions/performance_actions";
 const exercisesReducer = (state={}, action) => {
     Object.freeze(state)
     let newState;
-     
     switch(action.type) {
         case RECEIVE_EXERCISES: 
             // return action.exercises;

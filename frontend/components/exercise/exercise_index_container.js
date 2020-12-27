@@ -14,7 +14,6 @@ import ExerciseIndex from './exercise_index'
 const msp = (state) => {
 
     const exercises = selectExercises(state);
-    debugger
     const currentUser = state.entities.users[state.session.id]
     const traineeIds = state.entities.users[state.session.id].traineeIds
     const trainees = selectTrainees(state); 

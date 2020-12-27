@@ -7,7 +7,6 @@ import PerformanceIndex from "./performance_index";
 const mapStateToProps = (state) => {
 
     const performances = selectPerformancesWithExercise(state)
-    debugger
     return {
         performances
     }

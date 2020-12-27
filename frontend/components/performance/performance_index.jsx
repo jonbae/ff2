@@ -15,7 +15,6 @@ export default class PerformanceIndex extends React.Component {
     }
 
     renderPerformances(performances){
-        debugger
         let performanceItem = performances.map( performance => (
             <PerformanceIndexItem 
                 key={performance.id}

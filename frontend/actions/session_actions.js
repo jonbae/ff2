@@ -4,7 +4,8 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const LOGOUT_CURRENT_USER = 'LOGOUT_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 
-export const RECEIVE_CURRENT_USER_AND_TRAINEES = 'RECEIVE_CURRENT_USER_AND_TRAINEES'
+export const RECEIVE_TRAINEES = 'RECEIVE_TRAINEES';
+export const RECEIVE_TRAINER = 'RECEIVE_TRAINER'; 
 
 export const receiveCurrentUser = currentUser => ({
   type: RECEIVE_CURRENT_USER,
@@ -21,9 +22,14 @@ export const receiveErrors = errors => ({
 });
 
 
-export const receiveCurrentUserAndTrainees = users => ({
-  type: RECEIVE_CURRENT_USER_AND_TRAINEES, 
+export const receiveTrainees = users => ({
+  type: RECEIVE_TRAINEES, 
   users,
+})
+
+export const receiveTrainer = user => ({
+  type: RECEIVE_TRAINER, 
+  user
 })
 
 
@@ -52,6 +58,12 @@ export const logout = () => dispatch => (
 
 export const requestUsers = () => dispatch => {
   return APIUtil.fetchUsers().then(users => 
-    dispatch(receiveCurrentUserAndTrainees(users)
+    dispatch(receiveTrainees(users)
   ))
+}
+
+export const requestUser = id => dispatch => {
+  return APIUtil.fetchUser(id).then(user => {
+    return dispatch(receiveTrainer(user))
+  })
 }
