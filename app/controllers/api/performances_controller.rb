@@ -19,7 +19,7 @@ class Api::PerformancesController < ApplicationController
 
     def index 
         
-        unless params[:exercise].nil?
+        if !params[:exercise].nil?
             exercise = Exercise.find(exercise_params[:id])
             @performances = exercise.performances
             

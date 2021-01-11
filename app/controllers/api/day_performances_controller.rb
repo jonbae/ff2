@@ -13,13 +13,13 @@ class Api::DayPerformancesController < ApplicationController
 
     def index 
         
-        # unless params[:day_performance].nil? 
-            
-        # else
+        if params[:traineeId].nil?
             @day_performances = @current_user.day_performances_through_days
-        # end
-
-
+        else
+            trainee = User.find(params[:traineeId] )
+            
+            @day_performances = trainee.day_performances_through_days
+        end
     end
 
     def destroy

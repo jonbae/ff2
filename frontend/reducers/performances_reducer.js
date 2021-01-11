@@ -5,6 +5,7 @@ import {
 } from "../actions/performance_actions";
 import { RECEIVE_DAYS } from "../actions/day_actions";
 import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_DAY_PERFORMANCES } from "../actions/day_performance_actions";
 
 
 
@@ -26,7 +27,8 @@ const performancesReducer = (state = {}, action) => {
         case RECEIVE_DAYS: 
             return Object.assign({}, state, action.performances)
 
-
+        case RECEIVE_DAY_PERFORMANCES: 
+            return Object.assign({}, state, action.performances)
 
         case LOGOUT_CURRENT_USER: 
             return {}; 

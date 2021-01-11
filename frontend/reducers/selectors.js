@@ -11,7 +11,7 @@
 
 export const select = entities => state => {
   let resources = Object.values(state.entities[entities])
-  debugger
+  
   return resources.filter( resource => resource.user_id === state.session.id)
 }
 
@@ -69,13 +69,20 @@ export const selectPerformancesWithExercise = (state) => {
       }
     }
   }
-  debugger
+  
   return performances
 }
 
-export const selectDays = state => {
+export const selectDays = (state) => {
   let days = Object.values(state.entities.days); 
-  return days.filter( day => day.user_id === state.session.id)
+  
+  return days.filter( day => day.userId === state.session.id)
+}
+
+export const selectDaysByUserId = (state,userId) => {
+  let days = Object.values(state.entities.days); 
+  
+  return days.filter( day => day.userId === userId)
 }
 
 // export const selectDayExercises = (state,dayId) => {
@@ -88,7 +95,7 @@ export const selectDays = state => {
 export const selectDayExercisesThroughDay = (state,dayId) => {
   let dayExercises = Object.values(state.entities.dayExercises); 
 
-  debugger
+  
   return dayExercises.filter( dayExercise => dayExercise.dayId == dayId)
 }
 
@@ -98,14 +105,14 @@ export const selectExerciseIdsFromDayExerciseThroughDay = (state,dayId) => {
 
 export const selectDatedPerformancesWithExercise = (state,exerciseId) => {
   let performances  = selectPerformancesWithExercise(state); 
-  debugger
+  
   let dayExercises = Object.values(state.entities.dayExercises); 
   return performances.filter( performance => performance.exercise.id === exerciseId)
 }
 
 export const selectDayPerformances = (state, dayId) => {
   let dayPerformances = Object.values(state.entities.dayPerformances); 
-  debugger
+  
   return dayPerformances.filter( dayPerformance => dayPerformance.dayId === dayId)
 }
 

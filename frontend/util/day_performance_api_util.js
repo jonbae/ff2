@@ -1,7 +1,17 @@
 export const fetchDayPerformances = () => {
+    
     return $.ajax({
         url: `api/day_performances`, 
         method: 'get'
+    })
+}
+
+export const fetchTraineeDayPerformances = (traineeId) => {
+    
+    return $.ajax({
+        url: `api/day_performances`, 
+        method: 'get', 
+        data: {traineeId}
     })
 }
 

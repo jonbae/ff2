@@ -1,11 +1,17 @@
 import React from 'react'; 
-
-export default class UserIndexItem extends React.Component {
+import { withRouter } from 'react-router';
+class UserIndexItem extends React.Component {
     constructor(props){
         super(props)
         this.state = {}
+        this.handleClick = this.handleClick.bind(this);
     }
 
+
+    handleClick(){
+        
+        this.props.history.push(`/users/${this.props.user.id}`);
+    }
 
     render() {
         const {username} = this.props.user
@@ -16,7 +22,13 @@ export default class UserIndexItem extends React.Component {
                 <li>
                     {this.props.status} name: {username}
                 </li>
+                <button onClick={this.handleClick}>
+                    show schedule
+                </button>
+                
             </ul>
         )
     }
 }
+
+export default withRouter(UserIndexItem)

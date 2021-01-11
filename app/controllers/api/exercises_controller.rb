@@ -49,52 +49,93 @@ class Api::ExercisesController < ApplicationController
         tempfile = params['file'].tempfile
         datasheet = Roo::Spreadsheet.open(tempfile)
         headers = datasheet.row(1) #get header row
+        
         debugger
-
         datasheet.each_with_index do |row, idx|
             next if idx == 0 # skip header
             # create hash from headers and cells
             data = Hash[[headers, row].transpose]
-            debugger
+            
             puts data
 
             exercise_data = {
-                name: data['name'], 
+                name: data['exercise_name'], 
                 description: data['description'],
-                user_id: @current_user.id
+                user_id: params[:trainer_id]
             }
 
-            # performance_data = {
-            #     sets: data['sets'], 
-            #     repetitions: data['repetitions'], 
-            #     rest_time: data['rest_time'], 
-            # }
-
-
-            if Exercise.exists?(name: exercise_data['name'])
-                puts "Exercise with name '#{exercise_data['name']}' already exists"
-                next 
+            if Exercise.exists?(name: exercise_data[:name])
+                # puts "Exercise with name '#{exercise_data[:name]}' already exists"
+                # next 
+                debugger
+                exercise = Exercise.find_by(name: exercise_data[:name])
+            else 
+                #how does rails/db handle new if it already exists? 
+                exercise = Exercise.new(exercise_data)
+                exercise.save!
             end
+                
+
+            performance_data = {
+                sets: data['sets'], 
+                repetitions: data['repetitions'], 
+                rest_time: data['rest_time'], 
+                duration: data['duration'],
+                weight: data['weight'],
+                exercise_id: exercise.id,
+                user_id: params[:trainee_id]
+            }
+
+            if Performance.exists?(
+                sets: performance_data[:sets], 
+                repetitions: performance_data[:repetitions], 
+                rest_time: performance_data[:rest_time], 
+                duration: performance_data[:duration],
+                weight: performance_data[:weight]
+                )
+                debugger
+                performance = Performance.find_by(
+                    sets: performance_data[:sets], 
+                    repetitions: performance_data[:repetitions], 
+                    rest_time: performance_data[:rest_time], 
+                    duration: performance_data[:duration],
+                    weight: performance_data[:weight]
+                )
+            else
+                performance = Performance.new(performance_data)
+                performance.save! 
+            end
+
+            day_data = {
+                name: data['day_name'],
+                user_id: params[:trainee_id]
+            }
             debugger
-            #how does rails/db handle new if it already exists? 
-            exercise = Exercise.new(exercise_data)
-            debugger
-            puts "saving '#{exercise.name}' with user_id #{exercise.user_id}"
-            exercise.save!
+            if Day.exists?(name: day_data[:name])
+                debugger
+                day = Day.find_by(name: day_data[:name])
+            else
+                day = Day.new(day_data)
+                day.save!
+            end
 
-            debugger
+            day_performance_data = { 
+                performance_id: performance.id,
+                day_id: day.id
+            }
 
-            # performance_data = {
-            #     sets: data['sets'], 
-            #     repetitions: data['repetitions'], 
-            #     rest_time: data['rest_time'], 
-            #     exercise_id: exercise.id 
-            #     user_id: 
-            # }
-
-            # performance = Performance.new(performance_data)
-
-            # performance.save! 
+            if DayPerformance.exists?(                
+                performance_id: performance.id,
+                day_id: day.id
+            )
+                day_performance = DayPerformance.find_by(
+                    performance_id: performance.id,
+                    day_id: day.id
+                )
+            else
+                day_performance = DayPerformance.new(day_performance_data)
+                day_performance.save!
+            end
 
 
         end

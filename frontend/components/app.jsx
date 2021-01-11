@@ -41,6 +41,9 @@ const App = () => (
       <ProtectedRoute exact path="/users" component={UserIndexContainer} />
       <ProtectedRoute exact path="/days" component={DayIndexContainer} />
 
+      <ProtectedRoute exact path="/users/:userId" component={DayIndexContainer} /> 
+
+
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />

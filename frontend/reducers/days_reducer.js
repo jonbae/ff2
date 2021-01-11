@@ -1,5 +1,6 @@
 import { bindActionCreators } from "redux";
 import { RECEIVE_DAYS, REMOVE_DAY } from "../actions/day_actions";
+import { RECEIVE_DAY_PERFORMANCES } from "../actions/day_performance_actions";
 import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
 
 
@@ -16,6 +17,8 @@ const dayReducer = (state={}, action) => {
             delete newState[action.dayId];
             return newState; 
 
+        case RECEIVE_DAY_PERFORMANCES: 
+            return Object.assign({}, state, action.days)
 
 
         case LOGOUT_CURRENT_USER: 

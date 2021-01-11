@@ -4,11 +4,13 @@ export const RECEIVE_DAY_PERFORMANCES = 'RECEIVE_DAY_PERFORMANCES';
 export const RECEIVE_DAY_PERFORMANCE = 'RECEIVE_DAY_PERFORMANCE'; 
 export const REMOVE_DAY_PERFORMANCE = 'REMOVE_DAY_PERFORMANCE'
 
-export const receiveDayPerformances = dayPerformances => {
+export const receiveDayPerformances = payload => {
     return {
         type: RECEIVE_DAY_PERFORMANCES,
-        dayPerformances
-
+        dayPerformances: payload.dayPerformances, 
+        days: payload.days, 
+        performances: payload.performances, 
+        exercises: payload.exercises
     }
 }
 
@@ -30,10 +32,15 @@ export const requestDayPerformances = () => dispatch => {
     return APIUtil.fetchDayPerformances().then(dayPerformances => dispatch(receiveDayPerformances(dayPerformances)))
 }
 
-export const createDayPerformance = (dayPerformance) => {
-    return APIUtil.fetchDayperformance(dayPerformance).then(dayPerformance => dispatch(receiveDayPerformances(dayPerformance)))
+export const requestTraineeDayPerformances = (id) => dispatch => {
+    
+    return APIUtil.fetchTraineeDayPerformances(id).then(dayPerformances => dispatch(receiveDayPerformances(dayPerformances)))
 }
 
-export const deleteDayPerformance = (id) => dispatch => {
-    return APIUtil.deleteDayperformance(id).then(id => dispatch(removeDayperformance(id)))
-}
+// export const createDayPerformance = (dayPerformance) => {
+//     return APIUtil.fetchDayPerformance(dayPerformance).then(dayPerformance => dispatch(receiveDayPerformances(dayPerformance)))
+// }
+
+// export const deleteDayPerformance = (id) => dispatch => {
+//     return APIUtil.deleteDayPerformance(id).then(id => dispatch(removeDayperformance(id)))
+// }
