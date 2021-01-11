@@ -25,11 +25,10 @@ import UserIndexContainer from './user/user_index_container'
 import CreatePerformanceFormContainer from "./performance_form/create_performance_form_container";
 import Landing from "./landing/landing";
 import PerformanceIndexContainer from "./performance/performance_index_container"
-
+import DayIndexContainer from "./day_index/day_index_container"
 const App = () => (
   <div>
     <header>
-
       <GreetingContainer />
     </header>
     <Switch>
@@ -40,6 +39,8 @@ const App = () => (
 
       <ProtectedRoute exact path="/performances" component={PerformanceIndexContainer} />
       <ProtectedRoute exact path="/users" component={UserIndexContainer} />
+      <ProtectedRoute exact path="/days" component={DayIndexContainer} />
+
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       {/* <ProtectedRoute exact path="/benches/new" component={BenchFormContainer} />

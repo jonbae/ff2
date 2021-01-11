@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     end
 
     resources :performances, only: [:create, :destroy, :index, :show]
-
+    resources :days, only: [:create, :destroy, :index, :show]
+    resources :day_exercises, only: [:create, :destroy, :index]
+    resources :day_performances, only: [:create, :destroy, :index]
 
     
   end

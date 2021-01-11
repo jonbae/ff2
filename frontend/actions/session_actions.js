@@ -16,21 +16,27 @@ export const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
 
-export const receiveErrors = errors => ({
-  type: RECEIVE_SESSION_ERRORS,
-  errors
-});
+export const receiveErrors = errors => {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors
+  }
+};
 
 
-export const receiveTrainees = users => ({
+export const receiveTrainees = users => {
+  return {
   type: RECEIVE_TRAINEES, 
   users,
-})
+  }
+}
 
-export const receiveTrainer = user => ({
-  type: RECEIVE_TRAINER, 
-  user
-})
+export const receiveTrainer = user => {
+  return {
+    type: RECEIVE_TRAINER, 
+    user
+  }
+}
 
 
 export const signup = user => dispatch => (

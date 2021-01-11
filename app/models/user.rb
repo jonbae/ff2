@@ -35,6 +35,21 @@ class User < ApplicationRecord
     foreign_key: :trainer_id, 
     optional: true, 
     class_name: :User
+  
+  has_many :days, 
+    foreign_key: :user_id
+
+  has_many :day_exercises_through_days, 
+    through: :days,
+    source: :day_exercises
+  
+  has_many :day_exercises_through_exercises, 
+    through: :exercises,
+    source: :day_exercises
+
+  has_many :day_performances_through_days, 
+    through: :days, 
+    source: :day_performances
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

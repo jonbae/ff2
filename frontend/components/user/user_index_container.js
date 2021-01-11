@@ -6,9 +6,8 @@ import { selectTrainees, selectTrainer } from "../../reducers/selectors"
 
 
 const msp = (state) => {
-
-    const currentUser = state.entities.users[state.session.id]
-    let trainerId = currentUser.trainerId; 
+    const currentUser = state.entities.users[state.session.id];
+    const trainerId = currentUser.trainerId; 
     let trainer; 
     let traineeIds; 
     let trainees; 

@@ -10,10 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_25_175912) do
+ActiveRecord::Schema.define(version: 2021_01_10_190150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "day_exercises", force: :cascade do |t|
+    t.integer "exercise_id", null: false
+    t.integer "day_id", null: false
+    t.index ["day_id"], name: "index_day_exercises_on_day_id"
+    t.index ["exercise_id"], name: "index_day_exercises_on_exercise_id"
+  end
+
+  create_table "day_performances", force: :cascade do |t|
+    t.integer "performance_id", null: false
+    t.integer "day_id", null: false
+    t.index ["day_id"], name: "index_day_performances_on_day_id"
+    t.index ["performance_id"], name: "index_day_performances_on_performance_id"
+  end
+
+  create_table "days", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.boolean "active"
+    t.index ["user_id"], name: "index_days_on_user_id"
+  end
 
   create_table "exercises", force: :cascade do |t|
     t.string "name", null: false
@@ -21,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_12_25_175912) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "video_link"
     t.index ["user_id"], name: "index_exercises_on_user_id"
   end
 

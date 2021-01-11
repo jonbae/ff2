@@ -5,7 +5,7 @@ import { selectPerformancesWithExercise } from '../../reducers/selectors';
 import PerformanceIndex from "./performance_index";
 
 const mapStateToProps = (state) => {
-
+    
     const performances = selectPerformancesWithExercise(state)
     return {
         performances

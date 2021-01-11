@@ -18,6 +18,10 @@ const Greeting = ({ currentUser, logout }) => {
       <Link to="/exercises">Exercises</Link>
       &nbsp;
       <Link to="/performances">Performances</Link>
+      &nbsp;
+      <Link to="/users">Users</Link>
+      &nbsp;
+      <Link to="/days">Days</Link>
     </hgroup>
   );
 

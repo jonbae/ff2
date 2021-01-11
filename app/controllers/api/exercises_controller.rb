@@ -47,22 +47,56 @@ class Api::ExercisesController < ApplicationController
 
     def import 
         tempfile = params['file'].tempfile
-        data = Roo::Spreadsheet.open(tempfile)
-        headers = data.row(1) #get header row
-        
+        datasheet = Roo::Spreadsheet.open(tempfile)
+        headers = datasheet.row(1) #get header row
+        debugger
 
-        data.each_with_index do |row, idx|
+        datasheet.each_with_index do |row, idx|
             next if idx == 0 # skip header
             # create hash from headers and cells
-            exercise_data = Hash[[headers, row].transpose]
-            puts exercise_data
+            data = Hash[[headers, row].transpose]
+            debugger
+            puts data
+
+            exercise_data = {
+                name: data['name'], 
+                description: data['description'],
+                user_id: @current_user.id
+            }
+
+            # performance_data = {
+            #     sets: data['sets'], 
+            #     repetitions: data['repetitions'], 
+            #     rest_time: data['rest_time'], 
+            # }
+
+
             if Exercise.exists?(name: exercise_data['name'])
                 puts "Exercise with name '#{exercise_data['name']}' already exists"
                 next 
             end
+            debugger
+            #how does rails/db handle new if it already exists? 
             exercise = Exercise.new(exercise_data)
+            debugger
             puts "saving '#{exercise.name}' with user_id #{exercise.user_id}"
             exercise.save!
+
+            debugger
+
+            # performance_data = {
+            #     sets: data['sets'], 
+            #     repetitions: data['repetitions'], 
+            #     rest_time: data['rest_time'], 
+            #     exercise_id: exercise.id 
+            #     user_id: 
+            # }
+
+            # performance = Performance.new(performance_data)
+
+            # performance.save! 
+
+
         end
 
         @exercises = Exercise.where(user_id: @current_user.id)

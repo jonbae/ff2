@@ -2,6 +2,8 @@ import { RECEIVE_CURRENT_USER, RECEIVE_TRAINEES, RECEIVE_TRAINER } from '../acti
 
 import { RECEIVE_REVIEW, RECEIVE_BENCH } from '../actions/bench_actions';
 import { RECEIVE_EXERCISE } from '../actions/exercise_actions';
+import { LOGOUT_CURRENT_USER } from "../actions/session_actions";
+
 
 const usersReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -16,10 +18,15 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_EXERCISE: 
       return Object.assign({}, state)
     case RECEIVE_TRAINEES: 
-      return action.users 
+      return Object.assign({}, state, action.users )       
     case RECEIVE_TRAINER: 
       newState = { [action.user.id]: action.user }
       return Object.assign({}, state, newState)
+
+
+
+    case LOGOUT_CURRENT_USER: 
+      return {}; 
     default:
       return state;
   }
