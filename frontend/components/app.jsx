@@ -26,12 +26,25 @@ import CreatePerformanceFormContainer from "./performance_form/create_performanc
 import Landing from "./landing/landing";
 import PerformanceIndexContainer from "./performance/performance_index_container"
 import DayIndexContainer from "./day_index/day_index_container"
+import DayShowContainer from "./day_show/day_show_container"
+import LandingContainer from "./landing/landing_container"
+import BannerContainer from "./banner/banner_container"
+
+// import RegimentContainer from "./"
+
+
 const App = () => (
-  <div>
+  <div >
     <header>
-      <GreetingContainer />
+      {/* <GreetingContainer /> */}
+      <BannerContainer />
+
     </header>
     <Switch>
+      {/* Gives Warning: */}
+      {/* Unknown props `location`, `computedMatch` on <div> tag. Remove these props from the element. */}
+      <div className="app">
+
       <ProtectedRoute exact path="/exercises" component={ExerciseIndexContainer} />
       <ProtectedRoute exact path="/exercises/new" component={CreateExerciseFormContainer} />
       <ProtectedRoute exact path="/exercises/:exerciseId/update" component={UpdateExerciseFormContainer} />
@@ -39,10 +52,10 @@ const App = () => (
 
       <ProtectedRoute exact path="/performances" component={PerformanceIndexContainer} />
       <ProtectedRoute exact path="/users" component={UserIndexContainer} />
-      <ProtectedRoute exact path="/days" component={DayIndexContainer} />
+      {/* <ProtectedRoute exact path="" component={DayIndexContainer} /> */}
 
-      <ProtectedRoute exact path="/users/:userId" component={DayIndexContainer} /> 
-
+      <ProtectedRoute exact path="/users/:userId/days" component={DayIndexContainer} /> 
+      <ProtectedRoute exact path="/users/:userId/days/:dayId" component={DayShowContainer} />
 
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
@@ -50,7 +63,8 @@ const App = () => (
       <Route path="/benches/:benchId" component={BenchShowContainer} /> */}
       {/* <Route exact path="/" component={SearchContainer} /> */}
       
-      <Route exact path="/" component={Landing} /> 
+      <Route exact path="/" component={LandingContainer} /> 
+      </div>
     </Switch>
   </div>
 );

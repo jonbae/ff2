@@ -33,6 +33,12 @@
     font-family: 'Abel', sans-serif;
   }
 
+  .app, 
+  .banner {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+/*
  .content {
    height: 100%;
  }
@@ -137,7 +143,7 @@
  }
 
  .review-button {
-   /* padding-top: 1px; */
+    padding-top: 1px; 
  }
 
  .header-name {
@@ -197,7 +203,7 @@
  button.new-bench-button {
    width: 160px;
  }
-
+*/
  .login-form-container {
    display: flex;
    justify-content: center;

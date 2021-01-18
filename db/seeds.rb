@@ -22,6 +22,30 @@ u3 = User.create!(
   trainer_id: u1.id
 )
 
+u4 = User.create!(
+  username: 'jonathan', 
+  password: 'password', 
+  trainer_id: u1.id
+)
+
+u5 = User.create!(
+  username: 'alex', 
+  password: 'password', 
+  trainer_id: u1.id
+)
+
+u6 = User.create!(
+  username: 'richie', 
+  password: 'password', 
+  trainer_id: u1.id
+)
+
+u7 = User.create!(
+  username: 'kaiter', 
+  password: 'password', 
+  trainer_id: u1.id
+)
+
 squat = Exercise.create!( {name: 'squat', description: 'bend those legs', user_id: u1.id, } )
 deadlift = Exercise.create!( {name: 'deadlift', description: 'lift the dead', user_id: u1.id, } )
 bench_press = Exercise.create!( {name: 'bench press', description: 'press the bench', user_id: u1.id, } )

@@ -45,12 +45,23 @@ class Api::ExercisesController < ApplicationController
         render json:@exercise 
     end
 
+    # requires metaprogramming 
+    # def add_or_find(params)
+    #     if class_name.exists?(params)
+    #         data = class_name.find_by(params)
+    #     else
+    #         data = class_name.new(params)
+    #         data.save!
+    #     end
+    # end
+
+
     def import 
         tempfile = params['file'].tempfile
         datasheet = Roo::Spreadsheet.open(tempfile)
         headers = datasheet.row(1) #get header row
         
-        debugger
+        
         datasheet.each_with_index do |row, idx|
             next if idx == 0 # skip header
             # create hash from headers and cells
@@ -64,10 +75,10 @@ class Api::ExercisesController < ApplicationController
                 user_id: params[:trainer_id]
             }
 
-            if Exercise.exists?(name: exercise_data[:name])
+            if Exercise.exists?(name: exercise_data[:name], user_id: params[:trainer_id])
                 # puts "Exercise with name '#{exercise_data[:name]}' already exists"
                 # next 
-                debugger
+                
                 exercise = Exercise.find_by(name: exercise_data[:name])
             else 
                 #how does rails/db handle new if it already exists? 
@@ -91,15 +102,17 @@ class Api::ExercisesController < ApplicationController
                 repetitions: performance_data[:repetitions], 
                 rest_time: performance_data[:rest_time], 
                 duration: performance_data[:duration],
-                weight: performance_data[:weight]
+                weight: performance_data[:weight],
+                user_id: params[:trainee_id]
                 )
-                debugger
+                
                 performance = Performance.find_by(
                     sets: performance_data[:sets], 
                     repetitions: performance_data[:repetitions], 
                     rest_time: performance_data[:rest_time], 
                     duration: performance_data[:duration],
-                    weight: performance_data[:weight]
+                    weight: performance_data[:weight],
+                    user_id: params[:trainee_id]
                 )
             else
                 performance = Performance.new(performance_data)
@@ -110,10 +123,10 @@ class Api::ExercisesController < ApplicationController
                 name: data['day_name'],
                 user_id: params[:trainee_id]
             }
-            debugger
-            if Day.exists?(name: day_data[:name])
-                debugger
-                day = Day.find_by(name: day_data[:name])
+            
+            if Day.exists?(name: day_data[:name], user_id: params[:trainee_id])
+                
+                day = Day.find_by(name: day_data[:name], user_id: params[:trainee_id])
             else
                 day = Day.new(day_data)
                 day.save!
@@ -126,11 +139,11 @@ class Api::ExercisesController < ApplicationController
 
             if DayPerformance.exists?(                
                 performance_id: performance.id,
-                day_id: day.id
+                day_id: day.id,
             )
                 day_performance = DayPerformance.find_by(
                     performance_id: performance.id,
-                    day_id: day.id
+                    day_id: day.id,
                 )
             else
                 day_performance = DayPerformance.new(day_performance_data)

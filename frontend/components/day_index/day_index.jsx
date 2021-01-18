@@ -23,6 +23,12 @@ export default class DayIndex extends React.Component {
 
     }
 
+    navigateToDayShow(id){
+        // this.props.history.push(`days/${id}`)
+        this.props.history.push(`/users/${this.props.traineeId}/days/${id}`)
+
+    }
+
     onFileChange(e) {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
@@ -46,9 +52,10 @@ export default class DayIndex extends React.Component {
     }
 
 
+
     renderList(dailyDayPerformances) {
         const {daysObject, performancesObject,exercisesObject} = this.props; 
-        
+        //
         return dailyDayPerformances.map( (dayPerformances,i) => {
             
             const performances = dayPerformances.map( dayPerformance => {
@@ -60,19 +67,22 @@ export default class DayIndex extends React.Component {
                         <li>weight: {performancesObject[dayPerformance.performanceId]?.weight}</li>
                         <li>duration: {performancesObject[dayPerformance.performanceId]?.duration}</li>
                         <li>sets: {performancesObject[dayPerformance.performanceId]?.sets}</li>
-
+                        <li>rest: {performancesObject[dayPerformance.performanceId]?.rest_time}</li>
                     </div>
                 )
             })
             return (
                 <div key={i}>
-                    <h1>
+                    <h1 onClick={() => this.navigateToDayShow(daysObject[dayPerformances[0]?.dayId]?.id)}>
                         {daysObject[dayPerformances[0]?.dayId]?.name}
                     </h1>
+
                     
                     {performances}
                     
                 </div>
+
+                // <DayIndexItem performances={performances}  /> 
             )
             
         })

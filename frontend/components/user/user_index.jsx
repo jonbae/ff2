@@ -31,11 +31,13 @@ export default class UserIndex extends React.Component {
 
     render() {
         return (
-            <div>
-                <header>
-                    this is the user index page
-                </header>
-                {this.renderUsers(this.props.users)}
+            <div className="users_container">
+
+
+                <div className="users">
+
+                    {this.renderUsers(this.props.users)}
+                </div>
             </div>
         )
 

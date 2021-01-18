@@ -74,9 +74,7 @@ export const selectPerformancesWithExercise = (state) => {
 }
 
 export const selectDays = (state) => {
-  let days = Object.values(state.entities.days); 
-  
-  return days.filter( day => day.userId === state.session.id)
+  selectDaysByUserId(state,state.session.id);
 }
 
 export const selectDaysByUserId = (state,userId) => {
@@ -85,107 +83,16 @@ export const selectDaysByUserId = (state,userId) => {
   return days.filter( day => day.userId === userId)
 }
 
-// export const selectDayExercises = (state,dayId) => {
-//   let exercises = Object.values(state.entities.exercises); 
-//   return exercises.filter(
-//       exercise => exercise.dayId === dayId
-//   )
-// }
-
-export const selectDayExercisesThroughDay = (state,dayId) => {
-  let dayExercises = Object.values(state.entities.dayExercises); 
-
-  
-  return dayExercises.filter( dayExercise => dayExercise.dayId == dayId)
-}
-
-export const selectExerciseIdsFromDayExerciseThroughDay = (state,dayId) => {
-  return selectDayExercisesThroughDay(state,dayId).map( x => x.exerciseId) 
-}
-
-export const selectDatedPerformancesWithExercise = (state,exerciseId) => {
-  let performances  = selectPerformancesWithExercise(state); 
-  
-  let dayExercises = Object.values(state.entities.dayExercises); 
-  return performances.filter( performance => performance.exercise.id === exerciseId)
-}
-
 export const selectDayPerformances = (state, dayId) => {
   let dayPerformances = Object.values(state.entities.dayPerformances); 
   
   return dayPerformances.filter( dayPerformance => dayPerformance.dayId === dayId)
 }
 
-// export const selectExercisesWithPerformance = state => {
-//   let performances = Object.values(state.entities.performances);  
-//   performances.filter( 
-//     performance => performance.userId === state.session.id  
-//   )
-//   let exercises = Object.values(staste.entities.exercises); 
-//   exercises.filter(  
-//     exercise => exercise.userId === state.session.id  
-//   )
+export const selectPerformancesByDayId = (state,dayId) => {
+  let performances = Object.values(state.entities.performances); 
+  let dayPerformances = selectDayPerformances(state,dayId)
 
-//     for(const exercise of exercises) {
-//       exercise.performanceIds.forEach( performanceId => {
-//         performances.forEach( performance => {
-//           if(performance.id = performanceId){
+  return performances.filter( performance => dayPerformances.filter( dayPerformance => dayPerformance.performanceId === performance.id))
 
-//             exercise = {...exercise, ...performance }   
-//           }
-//         })
-//       })
-//     }
-
-
-//     return exercises; 
-
-// } 
-
-
-
-// export const selectDatedExercises = (state, dayId) => {
-//   let dayExercises = selectDayExercises(state,dayId); 
-//   let exercises = Object.values(state.entities.exercises).filter( exercise => {
-//     return dayExercises.filter(dayExercise => {
-//       return dayExercise.exerciseId === exercise.id
-//     })
-//   })
-//   let performances = Object.values(state.entities.performances);
-
-//   let exercisesWithPerformances = selectExercisesWithPerformance(exercises, performances)
-//   return exercisesWithPerformances;
-// }
-
-// export const selectExercisesWithPerformance = (exercises, performances) => {
-//   for(const exercise of exercises) {
-//     exercise.performanceIds.forEach( performanceId => {
-//       performances.forEach( performance => {
-//         if(performance.id = performanceId){
-
-//           exercise = {...exercise, ...performance } 
-//         }
-//       })
-//     })
-//   }
-
-//   return exercises; 
-// }
-
-
-// export const denormalizeDayExercisePerformance = (state) => {
-//   let days = Object.values(state.entities.days);
-//   let dayExercises; 
-//   let exercises = Object.values(state.entities.exercises);
-//   let performances = Object.values(state.entities.performances);
-  
-  
-  
-// }
-// export const selectDaysWithPerformancesWithExercises = state => {
-//   const performances = selectPerformancesWithExercise(state); 
-//   let days = Object.values(state.entities.days); 
-   
-//   console.log(performances)
-  
-// }
+}

@@ -1,0 +1,49 @@
+.banner{
+    display: flex; 
+    justify-content: space-between;
+    background-color:#ea3a12
+     /* #ef4b30; */
+    
+}
+
+.banner__company {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+}
+.banner__company > * {
+    margin: 10px;
+}
+
+.banner__name {
+    font-size: 24px;
+    color: white;
+
+}
+
+.banner__logo {
+    height: 60px;
+    width: 60px;
+}
+
+.banner__auth {
+    display: flex; 
+    align-items: center;
+}
+
+.banner__auth_links {
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+}
+
+.banner__auth_link {
+    margin: 10px;  
+    text-decoration: none;
+    color:black;
+    border: 1px solid black;
+    border-radius: 5px; 
+    padding: 5px;
+    background-color: white;
+}
+
