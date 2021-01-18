@@ -42,3 +42,11 @@ export const updateUser = user => {
     data: {user}
   })
 }
+
+export const searchUser = user => {
+  return $.ajax({
+    method: 'get', 
+    url: `/api/users/search`, 
+    data: {user}
+  })
+}

@@ -32,13 +32,17 @@ class Api::UsersController < ApplicationController
   def show 
     # return the trainer 
     @user = User.find(params[:id])
+  end
 
+  def search 
+    @user = User.find_by(username: user_params[:username])
+    
   end
 
 
   private
 
   def user_params
-    params.require(:user).permit(:username, :trainer_id)
+    params.require(:user).permit(:username, :password, :trainer_id)
   end
 end

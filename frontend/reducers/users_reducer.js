@@ -1,4 +1,4 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_TRAINEES, RECEIVE_TRAINER } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER, RECEIVE_TRAINEES, RECEIVE_TRAINER, RECEIVE_USER } from '../actions/session_actions';
 
 import { RECEIVE_REVIEW, RECEIVE_BENCH } from '../actions/bench_actions';
 import { RECEIVE_EXERCISE } from '../actions/exercise_actions';
@@ -21,6 +21,9 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_TRAINEES: 
       return Object.assign({}, state, action.users )       
     case RECEIVE_TRAINER: 
+      newState = { [action.user.id]: action.user }
+      return Object.assign({}, state, newState)
+    case RECEIVE_USER: 
       newState = { [action.user.id]: action.user }
       return Object.assign({}, state, newState)
     

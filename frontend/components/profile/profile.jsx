@@ -10,12 +10,13 @@ export default class Profile extends React.Component {
 
     componentDidMount(){
         // needs slight modification: change requestUser to requestAllTrainers
-        if(this.props.profileUser?.trainerId) {
-            this.props.requestUser(this.props.trainerId);
-        }
-        else {
-            this.props.requestUsers();
-        }
+        // if(this.props.profileUser?.trainerId) {
+        //     this.props.requestUser(this.props.trainerId);
+        // }
+        // else {
+        //     this.props.requestUsers();
+        // }
+        this.props.requestUser(this.props.profileUserId)
     }
 
     // requestConnection(){
@@ -41,7 +42,7 @@ export default class Profile extends React.Component {
                     {this.props.profileUser?.username}
                     {/* request trainer button  */}
                     <button onClick={this.requestConnection}>
-                        Request Trainer
+                        Request Connection
                     </button>    
                 </div>
                 {/* credentials */}

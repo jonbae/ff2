@@ -4,11 +4,14 @@ import { requestUser, requestUsers } from "../../actions/session_actions";
 
 import Profile from './profile'
 const mapStateToProps = (state, ownProps) => {
-    const userId = parseInt((ownProps.match.params.userId))
+    debugger
+    const profileUserId = parseInt((ownProps.match.params.userId))
 
-    const profileUser = state.entities.users[userId]; 
+    const profileUser = state.entities.users[profileUserId]; 
     const currentUser = state.entities.users[state.session.id]
+    debugger
     return {
+        profileUserId,
         currentUser,
         profileUser
     }
@@ -18,6 +21,7 @@ const mapDispatchToProps = dispatch => ({
     updateUser: (user) => dispatch(updateUser(user)),
     requestUsers: () => dispatch(requestUsers()), 
     requestUser: (id) => dispatch(requestUser(id)), 
+
 
 });
 

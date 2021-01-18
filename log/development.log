@@ -42313,3 +42313,646 @@ Processing by Api::UsersController#update as JSON
 Completed 200 OK in 14625ms (Views: 6.7ms | ActiveRecord: 2.9ms)
 
 
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (84.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (526.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "bench_bnb_development"[0m
+  [1m[35m (458.4ms)[0m  [1m[35mDROP DATABASE IF EXISTS "bench_bnb_test"[0m
+  [1m[35m (1158.5ms)[0m  [1m[35mCREATE DATABASE "bench_bnb_development" ENCODING = 'unicode'[0m
+  [1m[35m (908.8ms)[0m  [1m[35mCREATE DATABASE "bench_bnb_test" ENCODING = 'unicode'[0m
+  [1m[35m (219.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (152.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(6802361601607853190)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateBenches (20170802005858)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (140.3ms)[0m  [1m[35mCREATE TABLE "benches" ("id" bigserial primary key, "description" character varying, "lat" float, "lng" float, "seating" integer DEFAULT 2 NOT NULL, "picture_url" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170802005858"]]
+  [1m[35m (18.9ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateFavorites (20170802010041)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (86.7ms)[0m  [1m[35mCREATE TABLE "favorites" ("id" bigserial primary key, "user_id" integer NOT NULL, "bench_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (40.8ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_user_id" ON "favorites"  ("user_id")[0m
+  [1m[35m (52.1ms)[0m  [1m[35mCREATE  INDEX  "index_favorites_on_bench_id" ON "favorites"  ("bench_id")[0m
+  [1m[35m (53.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_favorites_on_bench_id_and_user_id" ON "favorites"  ("bench_id", "user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170802010041"]]
+  [1m[35m (18.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateReviews (20170802010223)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (101.1ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "body" character varying DEFAULT '' NOT NULL, "rating" integer NOT NULL, "bench_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (69.0ms)[0m  [1m[35mCREATE  INDEX  "index_reviews_on_bench_id" ON "reviews"  ("bench_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170802010223"]]
+  [1m[35m (40.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateUsers (20170802010308)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (91.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "trainer_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (70.1ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  [1m[35m (43.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170802010308"]]
+  [1m[35m (16.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddAuthorIdToReviews (20180411185240)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.7ms)[0m  [1m[35mALTER TABLE "reviews" ADD "author_id" integer NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20180411185240"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateActiveStorageTables (20181001184040)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (91.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "byte_size" bigint NOT NULL, "checksum" character varying NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (52.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_blobs_on_key" ON "active_storage_blobs"  ("key")[0m
+  [1m[35m (87.8ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp NOT NULL)[0m
+  [1m[35m (41.6ms)[0m  [1m[35mCREATE  INDEX  "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments"  ("blob_id")[0m
+  [1m[35m (40.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_active_storage_attachments_uniqueness" ON "active_storage_attachments"  ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20181001184040"]]
+  [1m[35m (24.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateExercises (20201221033535)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (82.5ms)[0m  [1m[35mCREATE TABLE "exercises" ("id" bigserial primary key, "name" character varying NOT NULL, "description" text, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (60.6ms)[0m  [1m[35mCREATE  INDEX  "index_exercises_on_user_id" ON "exercises"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201221033535"]]
+  [1m[35m (23.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePerformances (20201221033618)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (64.8ms)[0m  [1m[35mCREATE TABLE "performances" ("id" bigserial primary key, "duration" integer, "weight" integer, "rest_time" integer, "repetitions" integer, "sets" integer, "exercise_id" integer NOT NULL, "user_id" integer NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (58.9ms)[0m  [1m[35mCREATE  INDEX  "index_performances_on_user_id" ON "performances"  ("user_id")[0m
+  [1m[35m (40.2ms)[0m  [1m[35mCREATE  INDEX  "index_performances_on_exercise_id" ON "performances"  ("exercise_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201221033618"]]
+  [1m[35m (23.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddActiveToPerformances (20201225175912)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (152.6ms)[0m  [1m[35mALTER TABLE "performances" ADD "active" boolean DEFAULT FALSE NOT NULL[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201225175912"]]
+  [1m[35m (19.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDay (20201230042337)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (88.3ms)[0m  [1m[35mCREATE TABLE "days" ("id" bigserial primary key, "name" character varying NOT NULL, "user_id" integer NOT NULL, "active" boolean)[0m
+  [1m[35m (42.3ms)[0m  [1m[35mCREATE  INDEX  "index_days_on_user_id" ON "days"  ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201230042337"]]
+  [1m[35m (28.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDayExercise (20201230042415)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.3ms)[0m  [1m[35mCREATE TABLE "day_exercises" ("id" bigserial primary key, "exercise_id" integer NOT NULL, "day_id" integer NOT NULL)[0m
+  [1m[35m (41.1ms)[0m  [1m[35mCREATE  INDEX  "index_day_exercises_on_day_id" ON "day_exercises"  ("day_id")[0m
+  [1m[35m (41.9ms)[0m  [1m[35mCREATE  INDEX  "index_day_exercises_on_exercise_id" ON "day_exercises"  ("exercise_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201230042415"]]
+  [1m[35m (15.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddVideoLinkToExercise (20201230042637)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.8ms)[0m  [1m[35mALTER TABLE "exercises" ADD "video_link" character varying[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201230042637"]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateDayPerformance (20210110190150)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (86.7ms)[0m  [1m[35mCREATE TABLE "day_performances" ("id" bigserial primary key, "performance_id" integer NOT NULL, "day_id" integer NOT NULL)[0m
+  [1m[35m (46.0ms)[0m  [1m[35mCREATE  INDEX  "index_day_performances_on_day_id" ON "day_performances"  ("day_id")[0m
+  [1m[35m (52.1ms)[0m  [1m[35mCREATE  INDEX  "index_day_performances_on_performance_id" ON "day_performances"  ("performance_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210110190150"]]
+  [1m[35m (15.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-01-18 20:15:30.674247"], ["updated_at", "2021-01-18 20:15:30.674247"]]
+  [1m[35m (9.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(6802361601607853190)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started DELETE "/api/session" for ::1 at 2021-01-18 17:23:27 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "wga3FRBS_xQU5FSUsbOg2g"], ["LIMIT", 1]]
+Completed 404 Not Found in 26ms (Views: 0.4ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 17:23:33 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "wga3FRBS_xQU5FSUsbOg2g"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 1607ms (Views: 1605.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/users" for ::1 at 2021-01-18 17:23:56 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"traineeTestUser", "password"=>"[FILTERED]"}}
+Unpermitted parameter: :password
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "OC8xhfBTEzf7Sw60j6K-Fw"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "traineeTestUser"], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mROLLBACK[0m
+Completed 422 Unprocessable Entity in 33ms (Views: 0.3ms | ActiveRecord: 6.1ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 17:24:29 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "wga3FRBS_xQU5FSUsbOg2g"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (14.3ms)
+Completed 200 OK in 88ms (Views: 80.4ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/api/users" for ::1 at 2021-01-18 17:24:39 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"traineeTestUser", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7jN30hJM9A89211klRk8JQ"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "traineeTestUser"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "traineeTestUser"], ["password_digest", "$2a$12$zDSC0LuocJ8PQLaoiFVOH.tDxsA9WZg/I5N0k02F1u5GBqKbYsaMK"], ["session_token", "7jN30hJM9A89211klRk8JQ"], ["created_at", "2021-01-18 22:24:39.891589"], ["updated_at", "2021-01-18 22:24:39.891589"]]
+  [1m[35m (26.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kRLVorHf0Xx9BbG1vpg1zQ"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "traineeTestUser"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.6ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "kRLVorHf0Xx9BbG1vpg1zQ"], ["updated_at", "2021-01-18 22:24:39.924356"], ["id", 1]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 1], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (14.2ms)
+  Rendered api/users/show.json.jbuilder (15.2ms)
+Completed 200 OK in 397ms (Views: 17.3ms | ActiveRecord: 38.4ms)
+
+
+Started GET "/api/users" for ::1 at 2021-01-18 17:24:42 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kRLVorHf0Xx9BbG1vpg1zQ"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 1]]
+  Rendered api/users/index.json.jbuilder (4.7ms)
+Completed 200 OK in 19ms (Views: 9.8ms | ActiveRecord: 1.0ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/api/users" for ::1 at 2021-01-18 17:25:36 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kRLVorHf0Xx9BbG1vpg1zQ"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 1]]
+  Rendered api/users/index.json.jbuilder (3.0ms)
+Completed 200 OK in 65ms (Views: 7.0ms | ActiveRecord: 0.8ms)
+
+
+Started DELETE "/api/session" for ::1 at 2021-01-18 17:25:38 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kRLVorHf0Xx9BbG1vpg1zQ"], ["LIMIT", 1]]
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "jIqUvNpQNoXty_HyqD5obg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "traineeTestUser"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "jIqUvNpQNoXty_HyqD5obg"], ["updated_at", "2021-01-18 22:25:38.783976"], ["id", 1]]
+  [1m[35m (15.1ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 1], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.7ms)
+  Rendered api/users/show.json.jbuilder (2.6ms)
+Completed 200 OK in 31ms (Views: 4.4ms | ActiveRecord: 19.6ms)
+
+
+Started POST "/api/session" for ::1 at 2021-01-18 17:25:46 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"trainerTestUser", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "trainerTestUser"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 4ms (Views: 0.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/users" for ::1 at 2021-01-18 17:26:00 -0500
+Processing by Api::UsersController#create as JSON
+  Parameters: {"user"=>{"username"=>"trainerTestUser", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "zUvWF8337Y5ENj6f8CNwDg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "trainerTestUser"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "trainerTestUser"], ["password_digest", "$2a$12$YTHanmRxRoV5neczPGRzguIOzbQxnxnA73/d9jXu0rCaVY64lYCgu"], ["session_token", "zUvWF8337Y5ENj6f8CNwDg"], ["created_at", "2021-01-18 22:26:00.841988"], ["updated_at", "2021-01-18 22:26:00.841988"]]
+  [1m[35m (19.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "trainerTestUser"], ["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["updated_at", "2021-01-18 22:26:00.866319"], ["id", 2]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (1.9ms)
+  Rendered api/users/show.json.jbuilder (2.9ms)
+Completed 200 OK in 345ms (Views: 4.0ms | ActiveRecord: 28.1ms)
+
+
+Started GET "/api/users" for ::1 at 2021-01-18 17:26:02 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 2]]
+  Rendered api/users/index.json.jbuilder (4.5ms)
+Completed 200 OK in 17ms (Views: 9.1ms | ActiveRecord: 1.5ms)
+
+
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/api/users" for ::1 at 2021-01-18 17:26:52 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 2]]
+  Rendered api/users/index.json.jbuilder (2.2ms)
+Completed 200 OK in 11ms (Views: 4.5ms | ActiveRecord: 1.6ms)
+
+
+Started PATCH "/api/users/undefined" for ::1 at 2021-01-18 17:28:33 -0500
+Processing by Api::UsersController#update as JSON
+  Parameters: {"user"=>{"trainer_id"=>"2"}, "id"=>"undefined"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 24534ms (ActiveRecord: 0.4ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=undefined:
+  app/controllers/api/users_controller.rb:22:in `update'
+
+Started GET "/" for ::1 at 2021-01-18 17:30:37 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 453ms (Views: 450.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 17:30:56 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (4.4ms)
+  Rendered static_pages/root.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 490ms (Views: 487.0ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/users/undefined" for ::1 at 2021-01-18 17:30:57 -0500
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.9ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find User with 'id'=undefined:
+  app/controllers/api/users_controller.rb:34:in `show'
+
+Started GET "/" for ::1 at 2021-01-18 17:31:51 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (1.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (5.7ms)
+  Rendered static_pages/root.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 420ms (Views: 416.8ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 17:32:21 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 441ms (Views: 439.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users" for ::1 at 2021-01-18 17:32:32 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 2]]
+  Rendered api/users/index.json.jbuilder (5.2ms)
+Completed 200 OK in 25ms (Views: 15.4ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 17:32:33 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.8ms)
+  Rendered static_pages/root.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 95ms (Views: 90.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/users" for ::1 at 2021-01-18 17:32:34 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 2]]
+  Rendered api/users/index.json.jbuilder (6.4ms)
+Completed 200 OK in 26ms (Views: 14.5ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 17:32:55 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (5.3ms)
+  Rendered static_pages/root.html.erb within layouts/application (18.0ms)
+Completed 200 OK in 568ms (Views: 563.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 17:33:34 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (2.5ms)
+  Rendered static_pages/root.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 440ms (Views: 437.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/users/1" for ::1 at 2021-01-18 17:33:39 -0500
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 1], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.3ms)
+  Rendered api/users/show.json.jbuilder (5.7ms)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 17:34:56 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (6.6ms)
+  Rendered static_pages/root.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 398ms (Views: 396.6ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/api/users/1" for ::1 at 2021-01-18 17:34:59 -0500
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 1], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered api/users/show.json.jbuilder (4.8ms)
+Completed 200 OK in 12ms (Views: 8.1ms | ActiveRecord: 0.9ms)
+
+
+Started PATCH "/api/users/1" for ::1 at 2021-01-18 17:35:05 -0500
+Processing by Api::UsersController#update as JSON
+  Parameters: {"user"=>{"id"=>"1", "username"=>"traineeTestUser", "trainer_id"=>"2"}, "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "traineeTestUser"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "trainer_id" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["trainer_id", 2], ["updated_at", "2021-01-18 22:35:19.953624"], ["id", 1]]
+  [1m[35m (21.6ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (7.9ms)
+  Rendered api/users/show.json.jbuilder (9.6ms)
+Completed 200 OK in 14569ms (Views: 12.1ms | ActiveRecord: 24.9ms)
+
+
+Started GET "/api/users/2" for ::1 at 2021-01-18 17:35:52 -0500
+Processing by Api::UsersController#show as JSON
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 2], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 2]]
+  Rendered api/users/_user.json.jbuilder (3.2ms)
+  Rendered api/users/show.json.jbuilder (4.8ms)
+Completed 200 OK in 8ms (Views: 5.4ms | ActiveRecord: 1.2ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mUser Destroy (12.4ms)[0m  [1m[31mDELETE FROM "users"[0m
+  [1m[36mExercise Destroy (0.6ms)[0m  [1m[31mDELETE FROM "exercises"[0m
+  [1m[36mPerformance Destroy (0.5ms)[0m  [1m[31mDELETE FROM "performances"[0m
+  [1m[36mDay Destroy (0.7ms)[0m  [1m[31mDELETE FROM "days"[0m
+  [1m[36mDayExercise Destroy (0.5ms)[0m  [1m[31mDELETE FROM "day_exercises"[0m
+  [1m[36mDayPerformance Destroy (0.5ms)[0m  [1m[31mDELETE FROM "day_performances"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "Q0he0M4ommN0Vqgh4uWzQg"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "guest"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "guest"], ["password_digest", "$2a$12$8uhV.mprYht822IdREuwdeyJ0lVse3S/l8HmY1omLV6yuh0lDLPhG"], ["session_token", "Q0he0M4ommN0Vqgh4uWzQg"], ["created_at", "2021-01-18 22:36:23.495215"], ["updated_at", "2021-01-18 22:36:23.495215"]]
+  [1m[35m (22.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "WKW9QTQkQKYtWj3wRwxEmQ"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "username"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "trainer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "username"], ["password_digest", "$2a$12$s7ojlsERRJy.ysPp5co8teXPqLSOBs9pjU3jn3c9yzej2quUIdMVy"], ["session_token", "WKW9QTQkQKYtWj3wRwxEmQ"], ["trainer_id", 3], ["created_at", "2021-01-18 22:36:23.831995"], ["updated_at", "2021-01-18 22:36:23.831995"]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "kqZMR4L7yNBAhtiVAMhxbg"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mahim"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "trainer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "mahim"], ["password_digest", "$2a$12$Lw7UUnYACZ4SGMFbGJYS6OsmslCk.KXmVtzf3c7M8hK8lEeh2x6xS"], ["session_token", "kqZMR4L7yNBAhtiVAMhxbg"], ["trainer_id", 3], ["created_at", "2021-01-18 22:36:24.148354"], ["updated_at", "2021-01-18 22:36:24.148354"]]
+  [1m[35m (11.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7T0D7yCYxC0Z6Ra-_LaUtA"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jonathan"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "trainer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "jonathan"], ["password_digest", "$2a$12$iFUiUHIZnOws/RnXV/t./ufvt3TK4uil68ik39xVG.J0ntHqzA6TG"], ["session_token", "7T0D7yCYxC0Z6Ra-_LaUtA"], ["trainer_id", 3], ["created_at", "2021-01-18 22:36:24.464588"], ["updated_at", "2021-01-18 22:36:24.464588"]]
+  [1m[35m (5.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "vx9vq7iYkUidVQvwY0ZyZQ"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "alex"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "trainer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "alex"], ["password_digest", "$2a$12$5r1IK3NyK2BohqVv.1SuhOQCoJQQDWItVnNaXAJROS16n8cXsbMx2"], ["session_token", "vx9vq7iYkUidVQvwY0ZyZQ"], ["trainer_id", 3], ["created_at", "2021-01-18 22:36:24.776056"], ["updated_at", "2021-01-18 22:36:24.776056"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "XHPs2E1lkXU1hdnwZ-JC9g"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "richie"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "trainer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "richie"], ["password_digest", "$2a$12$CbL1aI2OptBjUeTZRarPJONta1HGhLeBrlrznB8pbf.Yum28klMGG"], ["session_token", "XHPs2E1lkXU1hdnwZ-JC9g"], ["trainer_id", 3], ["created_at", "2021-01-18 22:36:25.090725"], ["updated_at", "2021-01-18 22:36:25.090725"]]
+  [1m[35m (10.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8zfad8HFz3kPJK4mNEV_NQ"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "kaiter"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "session_token", "trainer_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["username", "kaiter"], ["password_digest", "$2a$12$K0nZo2ikEJRUpx2gt3SMVueo8MYY6g4PwO822n1OkUGmm2SeVNkoq"], ["session_token", "8zfad8HFz3kPJK4mNEV_NQ"], ["trainer_id", 3], ["created_at", "2021-01-18 22:36:25.409496"], ["updated_at", "2021-01-18 22:36:25.409496"]]
+  [1m[35m (12.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.6ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "squat"], ["description", "bend those legs"], ["user_id", 3], ["created_at", "2021-01-18 22:36:25.441026"], ["updated_at", "2021-01-18 22:36:25.441026"]]
+  [1m[35m (13.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.7ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "deadlift"], ["description", "lift the dead"], ["user_id", 3], ["created_at", "2021-01-18 22:36:25.459429"], ["updated_at", "2021-01-18 22:36:25.459429"]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mExercise Create (0.3ms)[0m  [1m[32mINSERT INTO "exercises" ("name", "description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "bench press"], ["description", "press the bench"], ["user_id", 3], ["created_at", "2021-01-18 22:36:25.470268"], ["updated_at", "2021-01-18 22:36:25.470268"]]
+  [1m[35m (7.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.2ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPerformance Create (0.5ms)[0m  [1m[32mINSERT INTO "performances" ("weight", "rest_time", "repetitions", "sets", "exercise_id", "user_id", "created_at", "updated_at", "active") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["weight", 30], ["rest_time", 39], ["repetitions", 10], ["sets", 3], ["exercise_id", 1], ["user_id", 4], ["created_at", "2021-01-18 22:36:25.500978"], ["updated_at", "2021-01-18 22:36:25.500978"], ["active", true]]
+  [1m[35m (9.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.2ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mPerformance Create (0.3ms)[0m  [1m[32mINSERT INTO "performances" ("weight", "rest_time", "repetitions", "sets", "exercise_id", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["weight", 50], ["rest_time", 89], ["repetitions", 15], ["sets", 4], ["exercise_id", 1], ["user_id", 4], ["created_at", "2021-01-18 22:36:25.514858"], ["updated_at", "2021-01-18 22:36:25.514858"]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mPerformance Create (0.5ms)[0m  [1m[32mINSERT INTO "performances" ("weight", "rest_time", "repetitions", "sets", "exercise_id", "user_id", "created_at", "updated_at", "active") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["weight", 30], ["rest_time", 39], ["repetitions", 38], ["sets", 38], ["exercise_id", 3], ["user_id", 4], ["created_at", "2021-01-18 22:36:25.526558"], ["updated_at", "2021-01-18 22:36:25.526558"], ["active", true]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDay Create (0.5ms)[0m  [1m[32mINSERT INTO "days" ("name", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["name", "push day"], ["user_id", 4]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mDay Create (0.4ms)[0m  [1m[32mINSERT INTO "days" ("name", "user_id") VALUES ($1, $2) RETURNING "id"[0m  [["name", "pull day"], ["user_id", 4]]
+  [1m[35m (7.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Load (1.1ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDay Load (1.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDayExercise Create (0.5ms)[0m  [1m[32mINSERT INTO "day_exercises" ("exercise_id", "day_id") VALUES ($1, $2) RETURNING "id"[0m  [["exercise_id", 3], ["day_id", 1]]
+  [1m[35m (6.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDayExercise Create (0.3ms)[0m  [1m[32mINSERT INTO "day_exercises" ("exercise_id", "day_id") VALUES ($1, $2) RETURNING "id"[0m  [["exercise_id", 1], ["day_id", 2]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Load (0.4ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDayExercise Create (0.4ms)[0m  [1m[32mINSERT INTO "day_exercises" ("exercise_id", "day_id") VALUES ($1, $2) RETURNING "id"[0m  [["exercise_id", 1], ["day_id", 1]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mExercise Load (0.3ms)[0m  [1m[34mSELECT  "exercises".* FROM "exercises" WHERE "exercises"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDay Load (0.4ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDayExercise Create (0.6ms)[0m  [1m[32mINSERT INTO "day_exercises" ("exercise_id", "day_id") VALUES ($1, $2) RETURNING "id"[0m  [["exercise_id", 2], ["day_id", 1]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformance Load (0.3ms)[0m  [1m[34mSELECT  "performances".* FROM "performances" WHERE "performances"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDayPerformance Create (0.4ms)[0m  [1m[32mINSERT INTO "day_performances" ("performance_id", "day_id") VALUES ($1, $2) RETURNING "id"[0m  [["performance_id", 3], ["day_id", 1]]
+  [1m[35m (5.0ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformance Load (0.3ms)[0m  [1m[34mSELECT  "performances".* FROM "performances" WHERE "performances"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDayPerformance Create (0.2ms)[0m  [1m[32mINSERT INTO "day_performances" ("performance_id", "day_id") VALUES ($1, $2) RETURNING "id"[0m  [["performance_id", 2], ["day_id", 2]]
+  [1m[35m (7.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformance Load (0.4ms)[0m  [1m[34mSELECT  "performances".* FROM "performances" WHERE "performances"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mDay Load (0.2ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDayPerformance Create (0.4ms)[0m  [1m[32mINSERT INTO "day_performances" ("performance_id", "day_id") VALUES ($1, $2) RETURNING "id"[0m  [["performance_id", 2], ["day_id", 1]]
+  [1m[35m (5.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPerformance Load (0.5ms)[0m  [1m[34mSELECT  "performances".* FROM "performances" WHERE "performances"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDay Load (0.3ms)[0m  [1m[34mSELECT  "days".* FROM "days" WHERE "days"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mDayPerformance Create (0.5ms)[0m  [1m[32mINSERT INTO "day_performances" ("performance_id", "day_id") VALUES ($1, $2) RETURNING "id"[0m  [["performance_id", 1], ["day_id", 1]]
+  [1m[35m (4.6ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2021-01-18 17:38:51 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "7fRDpxTQEbA-yb9MEn9oNg"], ["LIMIT", 1]]
+  Rendered static_pages/root.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 84ms (Views: 81.6ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/session" for ::1 at 2021-01-18 17:39:05 -0500
+Processing by Api::SessionsController#create as JSON
+  Parameters: {"user"=>{"username"=>"guest", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "guest"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "mS6hryxuXuwiQZl-kEF5SA"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "guest"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "mS6hryxuXuwiQZl-kEF5SA"], ["updated_at", "2021-01-18 22:39:05.479815"], ["id", 3]]
+  [1m[35m (22.5ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 3]]
+  Rendered api/users/_user.json.jbuilder (4.4ms)
+  Rendered api/users/show.json.jbuilder (7.1ms)
+Completed 200 OK in 345ms (Views: 8.8ms | ActiveRecord: 25.2ms)
+
+
+Started GET "/api/users" for ::1 at 2021-01-18 17:39:08 -0500
+Processing by Api::UsersController#index as JSON
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "mS6hryxuXuwiQZl-kEF5SA"], ["LIMIT", 1]]
+  Rendering api/users/index.json.jbuilder
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 3]]
+  [1m[36mUser Exists (4.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (35.9ms)
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 5], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (6.7ms)
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 6], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (14.5ms)
+  [1m[36mUser Exists (5.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 7], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (10.6ms)
+  [1m[36mUser Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 8], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (8.6ms)
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 9], ["LIMIT", 1]]
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  Rendered api/users/_user.json.jbuilder (10.4ms)
+  Rendered api/users/index.json.jbuilder (115.3ms)
+Completed 200 OK in 142ms (Views: 103.4ms | ActiveRecord: 24.3ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started DELETE "/api/session" for ::1 at 2021-01-18 17:49:11 -0500
+Processing by Api::SessionsController#destroy as JSON
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "mS6hryxuXuwiQZl-kEF5SA"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "8q2gSVswddC1NWE8cMVj-g"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["username", "guest"], ["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Update (1.1ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "8q2gSVswddC1NWE8cMVj-g"], ["updated_at", "2021-01-18 22:49:11.752215"], ["id", 3]]
+  [1m[35m (83.8ms)[0m  [1m[35mCOMMIT[0m
+  Rendering api/users/show.json.jbuilder
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."trainer_id" = $1 LIMIT $2[0m  [["trainer_id", 3], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."trainer_id" = $1[0m  [["trainer_id", 3]]
+  Rendered api/users/_user.json.jbuilder (3.4ms)
+  Rendered api/users/show.json.jbuilder (4.7ms)
+Completed 200 OK in 106ms (Views: 8.4ms | ActiveRecord: 87.5ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 18:16:04 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 387ms (Views: 386.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 18:48:26 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 534ms (Views: 533.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 18:49:39 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 529ms (Views: 527.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 18:50:26 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 486ms (Views: 485.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 18:51:15 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 44ms (Views: 42.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 18:52:17 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 744ms (Views: 743.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2021-01-18 18:53:11 -0500
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 498ms (Views: 497.0ms | ActiveRecord: 0.0ms)
+
+

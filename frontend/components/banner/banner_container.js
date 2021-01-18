@@ -12,7 +12,8 @@ const mapStateToProps = ({ session, entities: { users } }) => {
 const mapDispatchToProps = dispatch => ({
     login: () => dispatch(login()),
     signup: () => dispatch(signup()),
-    logout: () => dispatch(logout())
+    logout: () => dispatch(logout()),
+    searchUser: (user) => dispatch(searchUser(user))
 });
 
 export default connect(

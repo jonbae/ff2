@@ -1,8 +1,16 @@
-import React from 'react' ; 
+import React, {useState} from 'react' ; 
 import { Link } from 'react-router-dom'
 
 
 const Banner = ({currentUser, logout}) => {
+    debugger
+    console.log(React.version)
+    const [searchTerm, setSearchTerm] = useState(""); 
+    debugger
+    const handleChange = event => {
+        setSearchTerm(event.target.value);
+    }
+
     const sessionLinks = () => (
         <nav className="banner__auth_links">
 
@@ -19,6 +27,16 @@ const Banner = ({currentUser, logout}) => {
             log out
         </button> 
     )
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); 
+        //alternative formData
+        // const formData = new FormData();
+
+        const user = Object.assign({}, {username: searchTerm}); 
+        this.props.searchUser(user)
+    }
+
     return (
         <header className="banner">
             <hgroup className="banner__company">
@@ -26,6 +44,10 @@ const Banner = ({currentUser, logout}) => {
                 <h1 className="banner__name">
                     TrainerX    
                 </h1>
+                <form className="search_form" onSubmit={handleSubmit}>
+                    <input className="search_form__input" type="search" placeholder="search" value={searchTerm} onChange={handleChange}/>
+                    <button className="search_form__button">Search</button>
+                </form>
             </hgroup>
 
             <hgroup className="banner__auth">
