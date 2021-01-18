@@ -1,5 +1,4 @@
 import React from 'react'; 
-import day_index_container from '../day_index/day_index_container';
 
 export default class DayShow extends React.Component {
     constructor(props){

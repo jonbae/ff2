@@ -29,6 +29,8 @@ import DayIndexContainer from "./day_index/day_index_container"
 import DayShowContainer from "./day_show/day_show_container"
 import LandingContainer from "./landing/landing_container"
 import BannerContainer from "./banner/banner_container"
+import ProfileContainer from "./profile/profile_container"
+import Profile from './profile/profile';
 
 // import RegimentContainer from "./"
 
@@ -56,6 +58,7 @@ const App = () => (
 
       <ProtectedRoute exact path="/users/:userId/days" component={DayIndexContainer} /> 
       <ProtectedRoute exact path="/users/:userId/days/:dayId" component={DayShowContainer} />
+      <ProtectedRoute exact path="/profile/:userId" component={ProfileContainer} />
 
       <AuthRoute exact path="/login" component={LogInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

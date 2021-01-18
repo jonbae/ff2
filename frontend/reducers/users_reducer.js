@@ -10,6 +10,7 @@ const usersReducer = (state = {}, action) => {
   let newState
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
+      debugger
       return Object.assign({}, state, { [action.currentUser.id]: action.currentUser });
     case RECEIVE_REVIEW:
       return Object.assign({}, state, { [action.author.id]: action.author });
@@ -22,6 +23,7 @@ const usersReducer = (state = {}, action) => {
     case RECEIVE_TRAINER: 
       newState = { [action.user.id]: action.user }
       return Object.assign({}, state, newState)
+    
 
 
 

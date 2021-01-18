@@ -17,6 +17,18 @@ class Api::UsersController < ApplicationController
 
   end
 
+  def update 
+    debugger
+    @user = User.find(params[:id])
+    if @user.update({trainer_id: params[:user][:trainer_id]}) 
+      render :show
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
+
+  end
+
+
   def show 
     # return the trainer 
     @user = User.find(params[:id])
@@ -27,6 +39,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password)
+    params.require(:user).permit(:username, :trainer_id)
   end
 end

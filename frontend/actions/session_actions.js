@@ -73,3 +73,7 @@ export const requestUser = id => dispatch => {
     return dispatch(receiveTrainer(user))
   })
 }
+
+export const updateUser = user => dispatch => {
+  return APIUtil.updateUser(user).then(user => dispatch(receiveCurrentUser(user)))
+}
